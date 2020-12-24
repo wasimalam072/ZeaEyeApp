@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "94165437451",
+    "firebase_url": "https://zeaeye-development.firebaseio.com",
+    "project_id": "zeaeye-development",
+    "storage_bucket": "zeaeye-development.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94165437451:android:0ae0c32ec4bd89a8474b0e",
+        "android_client_info": {
+          "package_name": "com.zeaeye.zeaeye"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94165437451-epkgrutds3mtc718l6d2bom6ht6hbh4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5VdOQbGsjcMePN6ZwUZw5yl5XasG21_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94165437451-epkgrutds3mtc718l6d2bom6ht6hbh4e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "94165437451-apl71b3iqe1ai4fbvfkpauogqgskh0e8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.zeaeye.zeaeye"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
