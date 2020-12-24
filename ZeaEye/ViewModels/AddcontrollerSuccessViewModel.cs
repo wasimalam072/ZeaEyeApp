@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using ZeaEye.API.Services;
+using ZeaEye.Services;
 using ZeaEye.Views;
 
 namespace ZeaEye.ViewModels
@@ -13,11 +14,13 @@ namespace ZeaEye.ViewModels
     public class AddcontrollerSuccessViewModel : BaseViewModel
     {
         BaseApiServices baseApiServices;
+        private IAuth auth;
         string[] Data = null;
 
         public AddcontrollerSuccessViewModel(string[] data)
         {
             baseApiServices = new BaseApiServices();
+            auth = DependencyService.Get<IAuth>();
             Data = data;
             Title = "Add a new Controller";
             ControllerIdValue = Data[0];
@@ -60,15 +63,29 @@ namespace ZeaEye.ViewModels
             //         var UpdatePartnerId = await baseApiServices.UpdatePartnerId(DocumentId, Application.Current.Properties["PartneId"].ToString());
             //    }
             //}
-
-            var res = await baseApiServices.SaveController(contollerid, partnerid);
-            if (res != "Connected")
+            var DocumentId = "";
+            string userid = auth.GetUserId();
+            var CheckingController = await baseApiServices.CheckControllerMapingExisting(contollerid, partnerid, true);
+            Application.Current.Properties["ControllerExist"] = CheckingController.Item1;
+            if (!string.IsNullOrEmpty(Application.Current.Properties["ControllerExist"].ToString()))
             {
-                UserDialogs.Instance.HideLoading();
-                await Application.Current.MainPage.DisplayAlert("Please Contact Admin", "There is Some Problem with the Controller", "ok");
-                return;
-            }
+                var creatpartnewr = await baseApiServices.SaveControllerDocument(contollerid, partnerid, userid, true);
+                string DocValue = CheckingController.Item2;
+                string DocID = DocValue;
+                string[] authorsList = DocID.Split('/');
+                for (var i = 0; i <= authorsList.Length - 1; i++)
+                {
+                    DocumentId = authorsList[authorsList.Length - 1];
+                }
+                var UpdatePartnerId = await baseApiServices.UpdateControllerMapping(DocumentId, true);
 
+                var res = await baseApiServices.SaveController(contollerid, partnerid);
+                if (res != "Connected")
+                {
+                    UserDialogs.Instance.HideLoading();
+                    await Application.Current.MainPage.DisplayAlert("Please Contact Admin", "There is Some Problem with the Controller", "ok");
+                }
+            }
             UserDialogs.Instance.HideLoading();
             MainView.Instance.Detail = new NavigationPage(new YourDevicelistPage());
         }

@@ -30,6 +30,18 @@ namespace ZeaEye
             IsPresented = false;
         }
 
+        private void Button_Clicked_Dashboard(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new AboutPage());
+            IsPresented = false;
+        }
+
+        private void Button_ClickedProfile(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new ProfilePage());
+            IsPresented = false;
+        }
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
             UserDialogs.Instance.ShowLoading("Please wait...");
@@ -56,16 +68,13 @@ namespace ZeaEye
             }
 
         }
-        private void Button_Clicked_Dashboard(object sender, EventArgs e)
-        {
-            Detail = new NavigationPage(new AboutPage());
-            IsPresented = false;
-        }
+
         private void Button_Clicked_Help(object sender, EventArgs e)
         {
             Device.OpenUri(new Uri("https://zeaeye.com/"));
             IsPresented = false;
         }
+
         private void Button_Clicked_Signout(object sender, EventArgs e)
         {
             

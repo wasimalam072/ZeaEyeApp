@@ -73,8 +73,10 @@ namespace ZeaEye.ViewModels
         }
         private async void OnLoginClicked(object obj)
         {
-           //var result = await baseApiServices.UpdateControllerMapping("EiZBXRQtX5QExLqGcnYF", true);
-           //  return;
+            //var result = await baseApiServices.UpdateControllerMapping("EiZBXRQtX5QExLqGcnYF", true);
+            //  return;
+
+           
 
             var current = Connectivity.NetworkAccess;
             var profiles = Connectivity.ConnectionProfiles;
@@ -104,7 +106,7 @@ namespace ZeaEye.ViewModels
                     string userid = auth.GetUserId();
                     string DocumentId = "";
                     var partner = await baseApiServices.GetPartnerId(userid);
-                    Application.Current.Properties["PartneId"] = partner.Item1;
+                    Application.Current.Properties["PartneId"] = partner.Item1; 
                     if (string.IsNullOrEmpty(Application.Current.Properties["PartneId"].ToString()))
                     {
                             var creatpartnewr = await baseApiServices.CreatePartnerId(EmailId);

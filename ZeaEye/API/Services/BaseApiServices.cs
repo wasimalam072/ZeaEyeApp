@@ -219,7 +219,7 @@ namespace ZeaEye.API.Services
                                   {
                                       field = new Models.RequestMapping.Field
                                       {
-                                          fieldPath ="partnerID"
+                                          fieldPath ="partnerId"
                                       },
                                       op="EQUAL",
                                       value = new Models.RequestMapping.Value

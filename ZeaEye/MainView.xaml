@@ -33,7 +33,7 @@
                         </Grid>
                     </StackLayout>
                     <StackLayout Margin="40,0,10,0">
-                        <Grid RowDefinitions="40,40,1,40,1,40,40" Grid.RowSpan="5">
+                        <Grid RowDefinitions="40,40,1,40,40,1,40,40" Grid.RowSpan="5">
                             <Button Grid.Row="0"
                                     Text="Dashboard" 
                                     TextTransform="None" 
@@ -52,18 +52,25 @@
                                     TextTransform="None" 
                                     BackgroundColor="Transparent" 
                                     HorizontalOptions="Start" 
+                                    Text="Profile" 
+                                    Clicked="Button_ClickedProfile" 
+                                    TextColor="Gray"/>
+                            <Button Grid.Row="4" 
+                                    TextTransform="None" 
+                                    BackgroundColor="Transparent" 
+                                    HorizontalOptions="Start" 
                                     Text="Your Device(s)" 
                                     Clicked="Button_Clicked" 
                                     TextColor="Gray"/>
-                            <BoxView Grid.Row="4" Margin="10,0,0,0" HeightRequest="1" BackgroundColor="LightGray"/>
-                            <Button Grid.Row="5" 
+                            <BoxView Grid.Row="5" Margin="10,0,0,0" HeightRequest="1" BackgroundColor="LightGray"/>
+                            <Button Grid.Row="6" 
                                     TextTransform="None" 
                                     BackgroundColor="Transparent" 
                                     HorizontalOptions="Start" 
                                     Text="Help           " 
                                     Clicked="Button_Clicked_Help" 
                                     TextColor="Gray"/>
-                            <Button Grid.Row="6" 
+                            <Button Grid.Row="7" 
                                     TextTransform="None" 
                                     BackgroundColor="Transparent" 
                                     HorizontalOptions="Start" 
