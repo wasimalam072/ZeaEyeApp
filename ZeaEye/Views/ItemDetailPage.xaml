@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:ZeaEye.ViewModels" 
+             xmlns:customcontrols="clr-namespace:ZeaEye.CustomControls"
+             x:Class="ZeaEye.Views.ItemDetailPage"
+             Title="{Binding Title}" NavigationPage.HasBackButton="True"
+             BackgroundImage="gradient_background.png"
+             >
+    
+    <!--Scam Your Controller-->
+    
+    <ContentPage.BindingContext>
+       <vm:ItemDetailViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Frame BackgroundColor="#4091e0"
+                   HasShadow="False"
+                   CornerRadius="0"
+                   Padding="20,20, 5,20"
+                   HeightRequest="25">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Scan Controller QR code"
+                       TextColor="White"
+                       VerticalOptions="Center"
+                       FontSize="16"/>
+                    <Image Source="camera.png"
+                           Aspect="AspectFit"
+                               HorizontalOptions="EndAndExpand" 
+                               HeightRequest="45" 
+                               WidthRequest="45"/>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding QRcodeCommand}"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Label Text="or type Controller ID"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   TextColor="Gray"
+                   Margin="0,40,0,40"/>
+            <Frame BackgroundColor="Transparent"
+                   BorderColor="White"
+                   HeightRequest="45"
+                   HasShadow="False"
+                   CornerRadius="0"
+                   HorizontalOptions="FillAndExpand"
+                   Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <customcontrols:CustomEntry Placeholder="Add Controller with ID"
+                                             PlaceholderColor="#7F7F7F"
+                                             HorizontalTextAlignment="Center"
+                                             HorizontalOptions="FillAndExpand"
+                                             TextColor="Black"
+                                             Text="{Binding Con}"/>
+                    <ImageButton Source="Right_Arrow"
+                             VerticalOptions="Center"
+                             HorizontalOptions="End"
+                             Command="{Binding Frame1Command}"/>
+                </StackLayout>
+            </Frame>
+            <StackLayout VerticalOptions="EndAndExpand" Margin="0,0,0,50">
+                <Label Text="Need help?" 
+               TextDecorations="Underline"
+               HorizontalTextAlignment="Center"
+               TextColor="#7F7F7F">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:ZeaEye.ViewModels"
+             x:Class="ZeaEye.Views.IndicatorPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImage="gradient_background.png"
+             Title="{Binding Title}"
+             >
+
+    <ContentPage.Content>
+        <StackLayout Grid.Row="1"
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand">
+            <StackLayout IsVisible="{Binding AcvitityBind}">
+                <ActivityIndicator IsRunning="{Binding IsLoder}"
+                                   Color="#7F7F7F"
+                                   VerticalOptions="CenterAndExpand"
+                                   HeightRequest="100"/>
+                <Label Text="Locating Controller..."
+                       VerticalOptions="Center"
+                       IsVisible="{Binding IsLoder}"
+                       TextColor="#7F7F7F"
+                       FontSize="16"
+                       Margin="0,20,0,0"
+                       />
+            </StackLayout>
+            <StackLayout IsVisible="{Binding ErrorBind}" 
+                         VerticalOptions="CenterAndExpand">
+                <Label Text="Controller already assigned."
+                       VerticalOptions="Center"
+                       TextColor="#7F7F7F"
+                       FontSize="16"
+                       Margin="0,0,0,20"
+                       HorizontalOptions="CenterAndExpand"/>
+                <Button Text="Try again"
+                        TextTransform="None"
+                        VerticalOptions="EndAndExpand"
+                        Command="{Binding trycommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

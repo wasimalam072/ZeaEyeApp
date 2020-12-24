@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZeaEye.Views.ItemsPage"
+             xmlns:vm="clr-namespace:ZeaEye.ViewModels"  
+             xmlns:model="clr-namespace:ZeaEye.Models"  
+             x:Name="BrowseItemsPage"
+             BackgroundImageSource="gradient_background.png"
+             Title="{Binding Title}">
+  
+    <ContentPage.Content>
+        <StackLayout  Margin="15,15,15,0">
+            <Frame BackgroundColor="White"
+                   HasShadow="False"
+                   CornerRadius="0"
+                   HeightRequest="25">
+                <Label Text="No devices connected..." 
+                       TextColor="Black" 
+                       VerticalOptions="Center"
+                       FontSize="15"/>
+            </Frame>
+            <Frame BackgroundColor="#4091e0"
+                   HasShadow="False"
+                   HeightRequest="25"
+                   CornerRadius="0"
+                   Margin="0,5,0,0"
+                   HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text=" Add your first Controller" 
+                       TextColor="White" 
+                       VerticalOptions="Center"
+                       FontSize="16"/>
+                    <Image Source="ic_plus_icon.png"
+                           Aspect="AspectFit"
+                           HorizontalOptions="EndAndExpand" 
+                           HeightRequest="20" 
+                           WidthRequest="20"/>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding FrameCommand}"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:ZeaEye.ViewModels" 
+             xmlns:controls="clr-namespace:ZeaEye.CustomControls" xmlns:behaviors="clr-namespace:ZeaEye.Behaviors"
+             mc:Ignorable="d"
+             x:Class="ZeaEye.Views.LoginPage"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             BackgroundImageSource="background_started.png"
+             Title="LogIn">
+
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+
+        <ScrollView AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+            <Grid RowDefinitions="Auto, 5, Auto, Auto, Auto, Auto, Auto" Padding="10, 80, 10, 0" RowSpacing="5">
+                <Image Grid.Row="0"
+                       HeightRequest="180" 
+                       WidthRequest="180"
+                       Aspect="AspectFit" 
+                       Source="ic_logo.png"/>
+
+                <Frame Grid.Row="2"
+                       Padding="5"
+                       HorizontalOptions="FillAndExpand"
+                       BackgroundColor="Transparent" 
+                       BorderColor="WhiteSmoke"
+                       HasShadow="False">
+                    <StackLayout Orientation="Horizontal">
+                        <controls:CustomEntry Placeholder="Log in - Email" 
+                                          PlaceholderColor="#7F7F7F"
+                                          Margin="15,0,0,0"
+                                              FontFamily="AvenirNext"
+                                          HorizontalTextAlignment="Center" 
+                                          HorizontalOptions="FillAndExpand" 
+                                          TextColor="Black" 
+                                          Text="{Binding EmailId}">
+                            <!--<controls:CustomEntry.Behaviors>
+                            <behaviors:EmailValidatorBehavior />
+                        </controls:CustomEntry.Behaviors>-->
+
+
+                            </controls:CustomEntry>
+                        <ImageButton Source="testImage"
+                             VerticalOptions="Center"
+                             HorizontalOptions="End"/>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Row="3"
+                       Padding="5"
+                       HorizontalOptions="FillAndExpand" 
+                       BackgroundColor="Transparent" 
+                       BorderColor="WhiteSmoke" 
+                       HasShadow="False">
+                    <StackLayout Orientation="Horizontal">
+                        <controls:CustomEntry 
+                            Placeholder="Log in - Password"
+                            IsPassword="true"
+                            PlaceholderColor="#7F7F7F"
+                            FontFamily="AvenirNext"
+                            Margin="18,0,0,0"
+                            HorizontalTextAlignment="Center" 
+                            HorizontalOptions="FillAndExpand" 
+                            TextColor="Black" Text="{Binding Password}"/>
+                        <ImageButton Source="Right_Arrow.png"
+                             VerticalOptions="Center"
+                                     Aspect="AspectFit"
+                                     WidthRequest="40"
+                             HorizontalOptions="End"
+                             Command="{Binding LoginCommand}"/>
+                    </StackLayout>
+                </Frame>
+                <StackLayout Grid.Row="4" Spacing="12" 
+                             HorizontalOptions="Fill">
+                    <StackLayout Spacing="5">
+                        <Label Text="No account yet? Create one"  
+                               HorizontalOptions="Center"
+                               FontFamily="AvenirNext"
+                               TextColor="#7F7F7F" FontSize="16" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Command="{Binding SignInScreenCommand}"
+                                    NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout >
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </AbsoluteLayout>
+</ContentPage>
