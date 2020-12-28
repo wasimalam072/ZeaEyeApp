@@ -263,9 +263,18 @@ namespace ZeaEye.API.Services
         try
         {
 
-          var p = JsonConvert.DeserializeObject<List<ZeaEye.API.Models.Request1.Root>>(resStr);
-          res = p[0].Document.Fields.PartnerId.StringValue;
-          name = p[0].Document.Name;
+          var p = JsonConvert.DeserializeObject<List<ZeaEye.API.Models.ResponseMapping.Root>>(resStr);
+                    if(p[0].Document==null)
+                    {
+                        res = "";
+                        name = "";
+                    }
+                    else
+                    {
+                        res = p[0].Document.Fields.PartnerId.StringValue;
+                        name = p[0].Document.Name;
+                    }
+          
 
         }
         catch (Exception exe)

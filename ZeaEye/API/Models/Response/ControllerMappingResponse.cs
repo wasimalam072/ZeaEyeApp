@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace ZeaEye.API.Models.ResponseMapping
 {
-    public partial class GetMappingResponse
+    public partial class Root
     {
         [JsonProperty("document")]
         public Document Document { get; set; }
@@ -30,27 +30,26 @@ namespace ZeaEye.API.Models.ResponseMapping
     public partial class Fields
     {
         [JsonProperty("ControllerID")]
-        public ErId ControllerId { get; set; }
-
-        [JsonProperty("removed")]
-        public Removed Removed { get; set; }
+        public Email ControllerID { get; set; }
+        [JsonProperty("partnerId")]
+        public Email PartnerId { get; set; }
 
         [JsonProperty("userId")]
-        public ErId UserId { get; set; }
+        public Email UserId { get; set; }
 
-        [JsonProperty("partnerId")]
-        public ErId PartnerId { get; set; }
+       [JsonProperty("removed")]
+        public Remove Remove { get; set; }
     }
 
-    public partial class ErId
+    public partial class Email
     {
         [JsonProperty("stringValue")]
         public string StringValue { get; set; }
     }
-
-    public partial class Removed
+    public partial class Remove
     {
         [JsonProperty("booleanValue")]
-        public bool BooleanValue { get; set; }
+        public string BooleanValue { get; set; }
     }
+
 }

@@ -62,14 +62,21 @@ namespace ZeaEye.ViewModels
             //        }
             //         var UpdatePartnerId = await baseApiServices.UpdatePartnerId(DocumentId, Application.Current.Properties["PartneId"].ToString());
             //    }
-            //}
+            //}o
             var DocumentId = "";
             string userid = auth.GetUserId();
             var CheckingController = await baseApiServices.CheckControllerMapingExisting(contollerid, partnerid, true);
             Application.Current.Properties["ControllerExist"] = CheckingController.Item1;
             if (!string.IsNullOrEmpty(Application.Current.Properties["ControllerExist"].ToString()))
             {
+                UserDialogs.Instance.HideLoading();
+                await Application.Current.MainPage.DisplayAlert("Please Contact Admin", "There is Some Problem with the Controller", "ok");
+            }
+            else
+            {
+
                 var creatpartnewr = await baseApiServices.SaveControllerDocument(contollerid, partnerid, userid, true);
+
                 string DocValue = CheckingController.Item2;
                 string DocID = DocValue;
                 string[] authorsList = DocID.Split('/');
@@ -78,12 +85,11 @@ namespace ZeaEye.ViewModels
                     DocumentId = authorsList[authorsList.Length - 1];
                 }
                 var UpdatePartnerId = await baseApiServices.UpdateControllerMapping(DocumentId, true);
-
                 var res = await baseApiServices.SaveController(contollerid, partnerid);
                 if (res != "Connected")
                 {
                     UserDialogs.Instance.HideLoading();
-                    await Application.Current.MainPage.DisplayAlert("Please Contact Admin", "There is Some Problem with the Controller", "ok");
+                    await Application.Current.MainPage.DisplayAlert("Please Contact Admin", "Controller already mappped", "ok");
                 }
             }
             UserDialogs.Instance.HideLoading();
