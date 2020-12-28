@@ -18,6 +18,8 @@ namespace ZeaEye.ViewModels
 
         private string _UserName = Preferences.Get("UserName", string.Empty);
 
+        //private string _UserName = string.Empty;
+
         public string UserName
         {
             get { return _UserName; }

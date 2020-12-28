@@ -21,7 +21,11 @@
                                        HorizontalOptions="Start"
                                        Aspect="AspectFit"
                                        WidthRequest="50"
-                                       Source="ic_logo"/>
+                                       Source="ic_logo">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ProfileViewCommand}"/> 
+                                    </Image.GestureRecognizers>
+                                 </Image>
                                 <Label Grid.Row="1"
                                        x:Name="UserName"
                                        HorizontalOptions="Start"

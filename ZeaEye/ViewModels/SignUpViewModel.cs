@@ -126,7 +126,8 @@ namespace ZeaEye.ViewModels
                 else if (user != "")
                 {
                     string userid = auth.GetUserId();
-                    var res1 = await baseApiServices.SaveDocument(EmailId, string.Empty, userid, name);
+                    var res1 = await baseApiServices.SaveDocument(EmailId, string.Empty, userid, name, string.Empty, string.Empty);
+                    Application.Current.Properties["UserName"] = FirstName;
                     UserDialogs.Instance.HideLoading();
                     await Application.Current.MainPage.DisplayAlert("Success", "Your account successfully created.", "Ok");
                     var signOut = auth.SignOut();

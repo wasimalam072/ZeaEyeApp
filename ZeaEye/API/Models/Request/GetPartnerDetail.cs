@@ -42,6 +42,15 @@ namespace ZeaEye.API.Models.Request1
 
         [JsonProperty("partnerId")]
         public Email PartnerId { get; set; }
+
+
+        // WASIM ALAM Add this field for Get Mobile Number Information  28 Dec 2020
+        [JsonProperty("AlternetMobileNumber")]
+        public Email AlternetMobileNumber { get; set; }
+
+        // WASIM ALAM Add this field for Get Mobile Number Information  28 Dec 2020
+        [JsonProperty("MobileNumber")]
+        public Email MobileNumber { get; set; }
     }
 
     public partial class Email

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:ZeaEye.CustomControls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ZeaEye.CustomControls"
              x:Class="ZeaEye.Views.ProfilePage"
              Title="{Binding Title}"
              BackgroundImage="gradient_background.png">
@@ -11,197 +12,182 @@
         <ScrollView AbsoluteLayout.LayoutFlags="All"
                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
 
-            <Grid RowDefinitions="Auto, Auto, Auto" Margin="0,80,0,50" RowSpacing="20" HorizontalOptions="CenterAndExpand">
-                <Frame Grid.Row="0" Padding="0" CornerRadius="120" HorizontalOptions="CenterAndExpand">
+            <Grid RowDefinitions="80, Auto, Auto, Auto, Auto, Auto"
+                  Padding="15,0,15,20"
+                  RowSpacing="10"
+                  HorizontalOptions="FillAndExpand">
+                <!--<Frame Grid.Row="0" Padding="0" CornerRadius="120" HorizontalOptions="CenterAndExpand">
                     <Image 
                        HorizontalOptions="CenterAndExpand"
                        Aspect="AspectFit"
                        WidthRequest="120"
                        HeightRequest="120"
                        Source="ic_logo"/>
-                </Frame>
+                </Frame>-->
 
-                <Grid Grid.Row = "1" ColumnDefinitions="Auto, Auto" RowDefinitions="Auto, Auto, Auto, Auto, Auto" RowSpacing="5" HorizontalOptions="CenterAndExpand">
-
-                <Label Text="Name: "
-                       Grid.Row="0"
-                       Grid.Column="0"
-                       HorizontalTextAlignment="End"
-                       VerticalTextAlignment="Center"
-                       FontSize="16"
-                       HeightRequest="50"/>
-
-                    <Label Text="NameDispaly"
-                       Grid.Row="0"
-                       Grid.Column="1"
-                       HorizontalTextAlignment="Start"
-                       VerticalTextAlignment="Center"
-                       FontSize="16"
-                       HeightRequest="50"
-                       FontAttributes="Bold"
-                        IsVisible="{Binding EditTimeHide}"
-                           />
-
-                    <Frame Grid.Row="0"
-                       Grid.Column="1"
-                       Padding="5"
-                           IsVisible="{Binding EditTimeVisible}"
-                       HorizontalOptions="FillAndExpand"
-                       BackgroundColor="Transparent" 
-                       BorderColor="WhiteSmoke"
-                       HasShadow="False">
-                        <controls:CustomEntry
-                                          Margin="5,0,0,0"
-                                          FontFamily="AvenirNext"
-                                          HorizontalTextAlignment="Start" 
-                                          HorizontalOptions="FillAndExpand" 
-                                          TextColor="Black"
-                                          Text="{Binding FullName}">
-                            </controls:CustomEntry>
-                    </Frame>
-
-                <Label Text="Email Id: "
-                       Grid.Row="1"
-                       Grid.Column="0"
-                       HorizontalTextAlignment="End"
-                       VerticalTextAlignment="Center"
-                       FontSize="16"
-                       HeightRequest="50"/>
-
-                    <Label Text="EmailIdDispaly"
-                       Grid.Row="1"
-                       Grid.Column="1"
-                       HorizontalTextAlignment="Start"
-                       VerticalTextAlignment="Center"
-                       FontSize="16"
-                       HeightRequest="50"
-                       IsVisible="{Binding EditTimeHide}"
-                       FontAttributes="Bold"/>
-
-                     <Frame Grid.Row="1"
-                       Grid.Column="1"
-                       Padding="5"
-                           IsVisible="{Binding EditTimeVisible}"
-                       HorizontalOptions="FillAndExpand"
-                       BackgroundColor="Transparent" 
-                       BorderColor="WhiteSmoke"
-                       HasShadow="False">
-                        <controls:CustomEntry IsReadOnly="True"
-                                          Margin="5,0,0,0"
-                                          FontFamily="AvenirNext"
-                                          HorizontalTextAlignment="Start" 
-                                          HorizontalOptions="FillAndExpand" 
-                                          TextColor="Black"
-                                          Text="{Binding EmailId}">
-                            </controls:CustomEntry>
-                    </Frame>
-
-                <Label Text="Password: "
-                       Grid.Row="2"
-                       Grid.Column="0"
-                       HorizontalTextAlignment="End"
-                       VerticalTextAlignment="Center"
-                       FontSize="16"
-                       HeightRequest="50"/>
-
-                    <Label Text="PasswordDispaly"
-                       Grid.Row="2"
-                       Grid.Column="1"
-                       IsVisible="{Binding EditTimeHide}"
-                       HorizontalTextAlignment="Start"
-                       VerticalTextAlignment="Center"
-                       FontSize="16"
-                       HeightRequest="50"
-                       FontAttributes="Bold"/>
-
-                    <Frame Grid.Row="2"
-                           Grid.Column="1"
-                       Padding="5"
-                            IsVisible="{Binding EditTimeVisible}"
-                       HorizontalOptions="FillAndExpand" 
-                       BackgroundColor="Transparent" 
-                       BorderColor="WhiteSmoke" 
-                       HasShadow="False">
-                        <controls:CustomEntry
-                            IsPassword="true"
-                            FontFamily="AvenirNext"
-                            Margin="5,0,0,0"
-                            HorizontalOptions="FillAndExpand" 
-                            TextColor="Black" Text="{Binding Password}"/>
-                </Frame>
-
-                <Label Text="Mobile Number: "
-                       Grid.Row="3"
-                       Grid.Column="0"
-                       HorizontalTextAlignment="End"
-                       VerticalTextAlignment="Center"
-                       FontSize="16"
-                       HeightRequest="50"/>
-
-                    <Label Text="MobileNumberDispaly"
-                       Grid.Row="3"
-                       Grid.Column="1"
-                       HorizontalTextAlignment="Start"
+                    <Frame Grid.Row="1"
+                           Padding="5" 
+                           HorizontalOptions="Fill" 
+                           BackgroundColor="Transparent" 
+                           BorderColor="WhiteSmoke"
                            IsVisible="{Binding EditTimeHide}"
-                       VerticalTextAlignment="Center"
-                       FontSize="16"
-                       HeightRequest="50"
-                       FontAttributes="Bold"/>
-                    <Frame Grid.Row="3"
-                       Grid.Column="1"
-                       Padding="5"
-                       IsVisible="{Binding EditTimeVisible}"
-                       HorizontalOptions="FillAndExpand" 
-                       BackgroundColor="Transparent" 
-                       BorderColor="WhiteSmoke" 
-                       HasShadow="False">
-                    <controls:CustomEntry Margin="5,0,0,0"
-                           FontFamily="AvenirNext"
-                           Keyboard="Telephone"
+                           HasShadow="False">
+                    <controls:CustomEntry 
+                        Placeholder="Full Name" 
+                        PlaceholderColor="#7F7F7F"
+                        FontFamily="AvenirNext"
+                        IsReadOnly="True"
+                        HorizontalTextAlignment="Center" 
+                        HorizontalOptions="Fill" 
+                        TextColor="Black" 
+                        Text="{Binding FullName}"/>
+                </Frame>
+
+                    <Frame Grid.Row="1"
+                           Padding="5"
+                           IsVisible="{Binding EditTimeVisible}"
                            HorizontalOptions="FillAndExpand"
-                           TextColor="Black" Text="{Binding MobileNumber}"
-                           />
+                           BackgroundColor="Transparent" 
+                           BorderColor="WhiteSmoke"
+                           HasShadow="False">
+                        <controls:CustomEntry
+                            FontFamily="AvenirNext"
+                            HorizontalTextAlignment="Center" 
+                            HorizontalOptions="FillAndExpand" 
+                            TextColor="Black"
+                            Placeholder="Full Name" 
+                            Text="{Binding FullName}">
+                            </controls:CustomEntry>
                     </Frame>
 
-                <Label Text="Alternative phone: "
-                       Grid.Row="4"
-                       Grid.Column="0"
-                       HorizontalTextAlignment="End"
-                       VerticalTextAlignment="Center"
-                       FontSize="16"
-                       HeightRequest="50"/>
+                 <Frame Grid.Row="2"
+                        Padding="5" 
+                        HorizontalOptions="Fill" 
+                        BackgroundColor="Transparent" 
+                        BorderColor="WhiteSmoke"
+                        IsVisible="{Binding EditTimeHide}"
+                        HasShadow="False">
+                    <controls:CustomEntry 
+                        Placeholder="Email Id" 
+                        PlaceholderColor="#7F7F7F"
+                        FontFamily="AvenirNext"
+                        IsReadOnly="True"
+                        HorizontalTextAlignment="Center" 
+                        HorizontalOptions="Fill" 
+                        TextColor="Black" 
+                        Text="{Binding EmailId}"/>
+                </Frame>
 
-                    <Label Text="AlternativeNumberDispaly"
-                       Grid.Row="4"
-                       Grid.Column="1"
-                           IsVisible="{Binding EditTimeHide}"
-                       HorizontalTextAlignment="Start"
-                       VerticalTextAlignment="Center"
-                       FontSize="16"
-                       HeightRequest="50"
-                       FontAttributes="Bold"/>
+                     <Frame Grid.Row="2"
+                            Padding="5"
+                            IsVisible="{Binding EditTimeVisible}"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Transparent" 
+                            BorderColor="WhiteSmoke"
+                            HasShadow="False">
+                        <controls:CustomEntry
+                            IsReadOnly="True"
+                            FontFamily="AvenirNext"
+                            Placeholder="Email Id" 
+                            HorizontalTextAlignment="Center" 
+                            HorizontalOptions="FillAndExpand" 
+                            TextColor="Black"
+                            Text="{Binding EmailId}">
+                            </controls:CustomEntry>
+                    </Frame>
+
+
+                <Frame Grid.Row="3"
+                       Padding="5" 
+                       HorizontalOptions="Fill" 
+                       BackgroundColor="Transparent" 
+                       BorderColor="WhiteSmoke"
+                       IsVisible="{Binding EditTimeHide}"
+                       HasShadow="False">
+                    <controls:CustomEntry 
+                        Placeholder="Mobile Number" 
+                        PlaceholderColor="#7F7F7F"
+                        FontFamily="AvenirNext"
+                        IsReadOnly="True"
+                        HorizontalTextAlignment="Center" 
+                        HorizontalOptions="Fill" 
+                        TextColor="Black" 
+                        Text="{Binding MobileNumber}"/>
+                </Frame>
+
+                    <Frame Grid.Row="3"
+                           Padding="5"
+                           IsVisible="{Binding EditTimeVisible}"
+                           HorizontalOptions="FillAndExpand" 
+                           BackgroundColor="Transparent" 
+                           BorderColor="WhiteSmoke" 
+                           HasShadow="False">
+                    <controls:CustomEntry
+                        FontFamily="AvenirNext"
+                        Keyboard="Telephone"
+                        Placeholder="Mobile Number"
+                        HorizontalTextAlignment="Center" 
+                        HorizontalOptions="FillAndExpand"
+                        TextColor="Black"
+                        Text="{Binding MobileNumber}"
+                           />
+                    </Frame>
 
                     <Frame Grid.Row="4"
-                       Grid.Column="1"
-                       Padding="5"
-                       IsVisible="{Binding EditTimeVisible}"
-                       HorizontalOptions="FillAndExpand" 
-                       BackgroundColor="Transparent" 
-                       BorderColor="WhiteSmoke" 
-                       HasShadow="False">
-                    <controls:CustomEntry Margin="5,0,0,0"
-                           FontFamily="AvenirNext"
-                           Keyboard="Telephone"
-                           HorizontalOptions="FillAndExpand"
-                           TextColor="Black" Text="{Binding AlternetMobileNumber}"
-                           />
-                    </Frame>
-              </Grid>
-                <Button Text="Edit" Grid.Row="2" IsVisible="{Binding EditTimeHide}" Command="{Binding EditCommand}" TextTransform="None"/>
-                <Button Text="Update" Grid.Row="2" IsVisible="{Binding EditTimeVisible}" Command="{Binding UpdateCommand}" TextTransform="None"/>
-            </Grid>
+                           Padding="5" 
+                           HorizontalOptions="Fill" 
+                           BackgroundColor="Transparent" 
+                           BorderColor="WhiteSmoke"
+                           IsVisible="{Binding EditTimeHide}"
+                           HasShadow="False">
+                    <controls:CustomEntry 
+                        Placeholder="Alternative Mobile Number" 
+                        PlaceholderColor="#7F7F7F"
+                        FontFamily="AvenirNext"
+                        IsReadOnly="True"
+                        HorizontalTextAlignment="Center" 
+                        HorizontalOptions="Fill" 
+                        TextColor="Black" 
+                        Text="{Binding AlternetMobileNumber}"/>
+                </Frame>
 
+                    <Frame Grid.Row="4"
+                           Padding="5"
+                           IsVisible="{Binding EditTimeVisible}"
+                           HorizontalOptions="FillAndExpand" 
+                           BackgroundColor="Transparent" 
+                           BorderColor="WhiteSmoke" 
+                           HasShadow="False">
+                    <controls:CustomEntry
+                        FontFamily="AvenirNext"
+                        Keyboard="Telephone"
+                        Placeholder="Alternative Mobile Number"
+                        HorizontalTextAlignment="Center"
+                        HorizontalOptions="FillAndExpand"
+                        TextColor="Black"
+                        Text="{Binding AlternetMobileNumber}" />
+                    </Frame>
+
+                <StackLayout Grid.Row="5"
+                             Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Button Text="Change Password"
+                                IsEnabled="{Binding EditTimeHide}"
+                                Command="{Binding ForgotPasswordCommand}"
+                                TextTransform="None"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Button Text="Edit"
+                                IsVisible="{Binding EditTimeHide}"
+                                Command="{Binding EditCommand}"
+                                TextTransform="None"/>
+                        <Button Text="Update"
+                                IsVisible="{Binding EditTimeVisible}"
+                                Command="{Binding UpdateCommand}"
+                                TextTransform="None"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
         </ScrollView>
     </AbsoluteLayout>
-
 </ContentPage>

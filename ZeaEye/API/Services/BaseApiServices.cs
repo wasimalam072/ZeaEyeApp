@@ -104,7 +104,7 @@ namespace ZeaEye.API.Services
         #endregion
 
         #region CreateDocument
-        public async Task<string> SaveDocument(string Email, string partnerId, string userId, string name)
+        public async Task<string> SaveDocument(string Email, string partnerId, string userId, string name, string MobileNumber, string AlternativeMobileNumber)
         {
             string url = "https://firestore.googleapis.com/v1beta1/projects/zeaeye-development/databases/(default)/documents/user_data?key=AIzaSyDFsKxTp9Iy9ahegMAIHIn8atPKrbbLM70";
             using (var client = new HttpClient())
@@ -116,7 +116,9 @@ namespace ZeaEye.API.Services
                         partnerId = new PartnerId { stringValue = partnerId },
                         userId = new UserId { stringValue = userId },
                         Email = new Email { stringValue = Email },
-                        Name = new Name { stringValue = name }
+                        Name = new Name { stringValue = name },
+                        MobileNumber = new MobileNumber { stringValue = MobileNumber },
+                        AlternativeMobileNumber = new AlternativeMobileNumber { stringValue = AlternativeMobileNumber }
                     }
                 };
 
@@ -385,6 +387,62 @@ namespace ZeaEye.API.Services
         }
         #endregion
 
+
+        #region GetPartnerId
+        public async Task <List<Models.Request1.Root>> GetUserInformation(string UId)
+        {
+            string url = "https://firestore.googleapis.com/v1/projects/zeaeye-development/databases/(default)/documents:runQuery";
+            using (var client = new HttpClient())
+            {
+                var model = new GetPartnerId
+                {
+                    structuredQuery = new StructuredQuery
+                    {
+                        from = new List<From> { new From { collectionId = "user_data" } },
+                        where = new Where
+                        {
+                            compositeFilter = new CompositeFilter
+                            {
+                                filters = new List<Filter>
+                            {
+                                new Filter
+                                {
+                                    fieldFilter =new FieldFilter
+                                    {
+                                        field =new Field{
+                                            fieldPath ="userId",
+
+                                        },op ="EQUAL",
+                                        value =new Value
+                                        {
+                                            stringValue =UId
+                                        }
+                                    }
+                                }
+                            },
+                                op = "AND"
+                            }
+                        },
+                        limit = 1
+                    },
+                };
+                //var resultInformation = "";
+                var reqJson = JsonConvert.SerializeObject(model);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("X-Api-Key", XAPIKey);
+                var httpcontent = new StringContent(reqJson, Encoding.UTF8, "application/json");
+                var response = await client.PostAsync(url, httpcontent);
+                var resStr = await response.Content.ReadAsStringAsync();
+                
+                var resultInformation = JsonConvert.DeserializeObject<List<Models.Request1.Root>>(resStr);
+                
+                return resultInformation;
+            }
+        }
+        #endregion
+
+
         #region CreatePartnerId
         public async Task<GetpartnerId> CreatePartnerId(string Email)
         {
@@ -439,6 +497,40 @@ namespace ZeaEye.API.Services
             return responseString;
         }
 
+        #endregion
+
+
+        // WASIM ALAM Add this For update User Information  28 Dec 2020
+        #region update User Information using Email     
+        public async Task<string> UpdateUserInformationId(string DocId, String FullName, string MobileNumber, string AlternetMobileNumber)
+        {
+            string url = "https://firestore.googleapis.com/v1beta1/projects/zeaeye-development/databases/(default)/documents/user_data/" + DocId + "?updateMask.fieldPaths=FullName";
+            var client = new HttpClient();
+            var model = new Models.Request4.updatePartnerId
+            {
+                fields = new Models.Request4.Fields
+                {
+                    FullName = new Models.Request4.FullName
+                    {
+                        stringValue = FullName
+                    }
+                }
+            };
+
+            var method = new HttpMethod("PATCH");
+
+            var request = new HttpRequestMessage(method, url)
+            {
+                Content = new StringContent(
+                                JsonConvert.SerializeObject(model),
+                                Encoding.UTF8, "application/json")
+            };
+
+            var response = await client.SendAsync(request);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+            return responseString;
+        }
         #endregion
 
         #region Add devices
