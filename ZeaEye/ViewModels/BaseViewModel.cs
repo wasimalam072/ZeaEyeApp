@@ -19,6 +19,15 @@ namespace ZeaEye.ViewModels
         }
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
+        #region Version Number
+        private string _VersionNumberDisplay;
+        public string VersionNumberDisplay
+        {
+            get { return _VersionNumberDisplay; }
+            set { SetProperty(ref _VersionNumberDisplay, value); }
+        }
+        #endregion
+
         bool isBusy = false;
         public bool IsBusy
         {

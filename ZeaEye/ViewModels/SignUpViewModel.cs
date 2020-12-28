@@ -16,29 +16,25 @@ namespace ZeaEye.ViewModels
 {
     public class SignUpViewModel : BaseViewModel, INotifyPropertyChanged
     {
-        BaseApiServices baseApiServices;
         public new event PropertyChangedEventHandler PropertyChanged;
+        BaseApiServices baseApiServices;
         private IAuth auth;
+        private IAppVersion appVersion;
         public SignUpViewModel()
         {
-            baseApiServices = new BaseApiServices();
             Title = "Sign In";
+            baseApiServices = new BaseApiServices();
             auth = DependencyService.Get<IAuth>();
+            appVersion = DependencyService.Get<IAppVersion>();
+            VersionNumberDisplay = appVersion.GetVersion();
         }
 
         #region EmailID
         private string _EmailId;
         public string EmailId
         {
-            get 
-            { 
-                return _EmailId; 
-            }
-            set 
-            { 
-                _EmailId = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("EmailId"));
-            }
+            get { return _EmailId; }
+            set {  _EmailId = value; PropertyChanged(this, new PropertyChangedEventArgs("EmailId")); }
         }
         #endregion
 
@@ -47,15 +43,8 @@ namespace ZeaEye.ViewModels
 
         public string FirstName
         {
-            get
-            {
-                return _FirstName;
-            }
-            set
-            {
-                _FirstName = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("FirstName"));
-            }
+            get { return _FirstName; }
+            set { _FirstName = value; PropertyChanged(this, new PropertyChangedEventArgs("FirstName")); }
         }
         #endregion
 
@@ -64,15 +53,8 @@ namespace ZeaEye.ViewModels
 
         public string Password
         {
-            get
-            {
-                return _Password;
-            }
-            set
-            {
-                _Password = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Password"));
-            }
+            get { return _Password; }
+            set { _Password = value; PropertyChanged(this, new PropertyChangedEventArgs("Password")); }
         }
 
         #endregion
@@ -80,10 +62,7 @@ namespace ZeaEye.ViewModels
         #region SignUpCommand
         public Command SignUpCommand
         {
-            get
-            {
-                return new Command(OnSignUpClicked);
-            }
+            get { return new Command(OnSignUpClicked); }
         }
 
         private async void OnSignUpClicked(object obj)
@@ -135,7 +114,7 @@ namespace ZeaEye.ViewModels
                 UserDialogs.Instance.ShowLoading("Please wait...");
                 var user = await auth.SignUpWithEmailAndPassword(EmailId, Password);
                 string name = FirstName;
-                Xamarin.Essentials.Preferences.Set("UserName", FirstName);
+                Preferences.Set("UserName", FirstName);
                 if (user == "E")
                 {
                     await Application.Current.MainPage.DisplayAlert("Error", "Email Id already exist.", "Ok");
@@ -174,10 +153,7 @@ namespace ZeaEye.ViewModels
         #region MoveToLogInScreen
         public Command LogInScreenCommand
         {
-            get
-            {
-                return new Command(OnLogInScreenClicked);
-            }
+            get { return new Command(OnLogInScreenClicked); }
         }
         private void OnLogInScreenClicked(object obj)
         {
