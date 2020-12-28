@@ -14,6 +14,9 @@ namespace ZeaEye.ViewModels
         public ProfileViewModel()
         {
             Title = "Profile";
+            baseApiServices = new BaseApiServices();
+            auth = DependencyService.Get<IAuth>();
+            GetInformationOfUser();
         }
 
         private bool _EditTimeVisible = false;
