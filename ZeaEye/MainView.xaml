@@ -30,7 +30,7 @@
                                        x:Name="UserName"
                                        HorizontalOptions="Start"
                                        VerticalTextAlignment="Start"
-                                       Text="{Binding UserName}"
+                                       Text="{Binding UserNameDisplay}"
                                        TextColor="White"
                                        FontSize="16"/>
                             </Grid>

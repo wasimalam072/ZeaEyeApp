@@ -14,7 +14,7 @@ namespace ZeaEye.API.Models.Response11
 
     public partial class Document
     {
-        [JsonProperty("name")]
+        [JsonProperty("Name")]
         public string Name { get; set; }
 
         [JsonProperty("fields")]

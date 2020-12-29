@@ -4,26 +4,43 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 using ZeaEye.Services;
+using Acr.UserDialogs;
+using ZeaEye.API.Services;
 
 namespace ZeaEye.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        BaseApiServices baseApiServices;
         private IAppVersion appVersion;
+        private IAuth auth;
         public MainViewModel()
         {
             appVersion = DependencyService.Get<IAppVersion>();
             VersionNumberDisplay = appVersion.GetVersion();
+            auth = DependencyService.Get<IAuth>();
+            baseApiServices = new BaseApiServices();
+            GetUserName();
         }
 
-        private string _UserName = Preferences.Get("UserName", string.Empty);
+        #region User Name Display
 
-        //private string _UserName = string.Empty;
-
-        public string UserName
+        string _UserNameDisplay = string.Empty;
+        public string UserNameDisplay
         {
-            get { return _UserName; }
-            set { _UserName = value; RaisePropertyChanged(); }
+            get { return _UserNameDisplay; }
+            set { SetProperty(ref _UserNameDisplay, value); }
+        }
+        #endregion
+
+
+        public async void GetUserName()
+        {
+            UserDialogs.Instance.ShowLoading("Please wait...");
+            string userid = auth.GetUserId();
+            var UserInformation = await baseApiServices.GetUserInformation(userid);
+            UserNameDisplay = UserInformation[0].Document.Fields.Name.StringValue;
+            UserDialogs.Instance.HideLoading();
         }
     }
 }
