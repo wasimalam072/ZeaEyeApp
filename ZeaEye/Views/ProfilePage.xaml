@@ -173,7 +173,7 @@
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <Button Text="Change Password"
                                 IsEnabled="{Binding EditTimeHide}"
-                                Command="{Binding ForgotPasswordCommand}"
+                                Command="{Binding ChangePasswordCommand}"
                                 TextTransform="None"/>
                     </StackLayout>
                     <StackLayout HorizontalOptions="FillAndExpand">

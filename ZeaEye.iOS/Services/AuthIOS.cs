@@ -16,6 +16,20 @@ namespace ZeaEye.iOS.Services
 {
     public class AuthIOS : IAuth
     {
+        public string GetCurrentUser(string UpdatePassword)
+        {
+            try
+            {
+                var user = Auth.DefaultInstance.CurrentUser;
+                user.UpdatePasswordAsync(UpdatePassword);
+                return user.Uid;
+            }
+            catch(Exception ex)
+            {
+                return string.Empty;
+            }
+        }
+
         public string GetUserId()
         {
             var user = Auth.DefaultInstance.CurrentUser;

@@ -12,5 +12,6 @@ namespace ZeaEye.Services
         bool SignOut();
         bool IsSignIn();
         String GetUserId();
+        string GetCurrentUser(string UpdatePassword);
     }
 }

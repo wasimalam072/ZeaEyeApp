@@ -4,6 +4,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using ZeaEye.API.Services;
 using ZeaEye.Services;
+using ZeaEye.Views;
 
 namespace ZeaEye.ViewModels
 {
@@ -92,7 +93,7 @@ namespace ZeaEye.ViewModels
         {
             EditTimeVisible = false;
             EditTimeHide = true;
-            UpdateInformationOfUser();
+            //UpdateInformationOfUser();
         }
         #endregion
 
@@ -139,6 +140,18 @@ namespace ZeaEye.ViewModels
             MobileNumber = UserInformation[0].Document.Fields.MobileNumber.StringValue;
             AlternetMobileNumber = UserInformation[0].Document.Fields.AlternetMobileNumber.StringValue;
             UserDialogs.Instance.HideLoading();
+        }
+        #endregion
+
+
+        #region Change Password
+        public Command ChangePasswordCommand
+        {
+            get { return new Command(OnChangePasswordCommandClicked); }
+        }
+        private async void OnChangePasswordCommandClicked(object obj)
+        {
+            await(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new PasswordChangePage());
         }
         #endregion
     }

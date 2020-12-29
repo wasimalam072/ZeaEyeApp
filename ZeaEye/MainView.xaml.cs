@@ -84,6 +84,7 @@ namespace ZeaEye
                 if (signOut)
                 {
                     Application.Current.Properties["PartneId"] = "";
+                    Application.Current.Properties["Email"] = "";
                     Application.Current.MainPage = new LoginPage();
                     IsPresented = false;
                 }
