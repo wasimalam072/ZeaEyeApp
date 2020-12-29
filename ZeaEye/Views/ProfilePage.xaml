@@ -12,9 +12,10 @@
         <ScrollView AbsoluteLayout.LayoutFlags="All"
                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
 
-            <Grid RowDefinitions="80, Auto, Auto, Auto, Auto, Auto"
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
                   Padding="15,0,15,20"
                   RowSpacing="10"
+                  VerticalOptions="CenterAndExpand"
                   HorizontalOptions="FillAndExpand">
                 <!--<Frame Grid.Row="0" Padding="0" CornerRadius="120" HorizontalOptions="CenterAndExpand">
                     <Image 

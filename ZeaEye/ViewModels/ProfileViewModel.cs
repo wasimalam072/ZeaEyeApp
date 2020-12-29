@@ -93,7 +93,7 @@ namespace ZeaEye.ViewModels
         {
             EditTimeVisible = false;
             EditTimeHide = true;
-            //UpdateInformationOfUser();
+            UpdateInformationOfUser();
         }
         #endregion
 
@@ -111,6 +111,7 @@ namespace ZeaEye.ViewModels
             {
                 DocumentId = authorsList[authorsList.Length - 1];
             }
+            var DocValueFatch = DocumentId;
             var UserInformation = await baseApiServices.UpdateUserInformationId(DocumentId, FullName, MobileNumber, AlternetMobileNumber);
             UserDialogs.Instance.HideLoading();
         }

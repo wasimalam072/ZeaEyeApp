@@ -501,17 +501,25 @@ namespace ZeaEye.API.Services
 
         // WASIM ALAM Add this For update User Information  28 Dec 2020
         #region update User Information using Email     
-        public async Task<string> UpdateUserInformationId(string DocId, String FullName, string MobileNumber, string AlternetMobileNumber)
+        public async Task<string> UpdateUserInformationId(string DocId, String FullName, string MobileNumber, string AlternativePhoneNumber)
         {
-            string url = "https://firestore.googleapis.com/v1beta1/projects/zeaeye-development/databases/(default)/documents/user_data/" + DocId + "?updateMask.fieldPaths=FullName";
+            string url = "https://firestore.googleapis.com/v1beta1/projects/zeaeye-development/databases/(default)/documents/user_data/PC90eJhFi5dKpJY1WaO0?updateMask.fieldPaths=Name&updateMask.fieldPaths=MobileNumber&updateMask.fieldPaths=AlternativePhoneNumber";
             var client = new HttpClient();
-            var model = new Models.Request4.updatePartnerId
+            var model = new Models.Request10.updatePartnerId
             {
-                fields = new Models.Request4.Fields
+                fields = new Models.Request10.Fields
                 {
-                    FullName = new Models.Request4.FullName
+                    FullName = new Models.Request10.FullName
                     {
                         stringValue = FullName
+                    },
+                    MobileNumber = new Models.Request10.MobileNumber
+                    {
+                        stringValue = MobileNumber
+                    },
+                    AlternativePhoneNumber = new Models.Request10.AlternativePhoneNumber
+                    {
+                        stringValue = AlternativePhoneNumber
                     }
                 }
             };
