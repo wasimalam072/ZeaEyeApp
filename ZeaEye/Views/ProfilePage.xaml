@@ -142,7 +142,7 @@
                            IsVisible="{Binding EditTimeHide}"
                            HasShadow="False">
                     <controls:CustomEntry 
-                        Placeholder="Alternative Mobile Number" 
+                        Placeholder="Alternative Phone Number" 
                         PlaceholderColor="#7F7F7F"
                         FontFamily="AvenirNext"
                         IsReadOnly="True"
@@ -162,7 +162,7 @@
                     <controls:CustomEntry
                         FontFamily="AvenirNext"
                         Keyboard="Telephone"
-                        Placeholder="Alternative Mobile Number"
+                        Placeholder="Alternative Phone Number"
                         HorizontalTextAlignment="Center"
                         HorizontalOptions="FillAndExpand"
                         TextColor="Black"
