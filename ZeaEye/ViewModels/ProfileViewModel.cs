@@ -143,7 +143,6 @@ namespace ZeaEye.ViewModels
         }
         #endregion
 
-
         #region Change Password
         public Command ChangePasswordCommand
         {

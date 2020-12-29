@@ -62,6 +62,11 @@ namespace ZeaEye.ViewModels
                 EditTimeVisible = true;
                 EditTimeHide = false;
             }
+            //if (string.IsNullOrEmpty(VerfyEmailId))
+            //{
+            //    await Application.Current.MainPage.DisplayAlert("Empty", "Email Id is mandatory.", "Ok");
+            //    return;
+            //}
             else
             {
                 await Application.Current.MainPage.DisplayAlert("Email Id", "Email Id didn't match.", "Ok");
@@ -75,10 +80,28 @@ namespace ZeaEye.ViewModels
         {
             get { return new Command(OnUpdatePasswordCommandClicked); }
         }
-        private void OnUpdatePasswordCommandClicked(object obj)
+        private async void OnUpdatePasswordCommandClicked(object obj)
         {
-            var result =  auth.GetCurrentUser(UpdatePassword);
-            Application.Current.MainPage = new LoginPage();
+            UserDialogs.Instance.ShowLoading("Please wait...");
+            if (string.IsNullOrEmpty(UpdatePassword))
+            {
+                await Application.Current.MainPage.DisplayAlert("Empty", "Password is mandatory.", "Ok");
+                return;
+            }
+            if (UpdatePassword?.Length <= 6)
+            {
+                await Application.Current.MainPage.DisplayAlert("Validation", "Password must be grater than 7 characters.", "Ok");
+                UserDialogs.Instance.HideLoading();
+                return;
+            }
+            else
+            { 
+                var result =  auth.GetCurrentUser(UpdatePassword);
+                UserDialogs.Instance.HideLoading();
+                await Application.Current.MainPage.DisplayAlert("Update", "Password has updated.", "Ok");
+                Application.Current.MainPage = new LoginPage();
+            }
+            UserDialogs.Instance.HideLoading();
         }
         #endregion
     }

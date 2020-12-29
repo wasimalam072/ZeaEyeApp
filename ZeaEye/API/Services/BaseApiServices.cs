@@ -388,7 +388,7 @@ namespace ZeaEye.API.Services
         #endregion
 
 
-        #region GetPartnerId
+        #region Get User Information
         public async Task <List<Models.Request1.Root>> GetUserInformation(string UId)
         {
             string url = "https://firestore.googleapis.com/v1/projects/zeaeye-development/databases/(default)/documents:runQuery";
@@ -426,7 +426,6 @@ namespace ZeaEye.API.Services
                         limit = 1
                     },
                 };
-                //var resultInformation = "";
                 var reqJson = JsonConvert.SerializeObject(model);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
