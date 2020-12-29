@@ -149,7 +149,7 @@
                         HorizontalTextAlignment="Center" 
                         HorizontalOptions="Fill" 
                         TextColor="Black" 
-                        Text="{Binding AlternetMobileNumber}"/>
+                        Text="{Binding AlternativePhoneNumber}"/>
                 </Frame>
 
                     <Frame Grid.Row="4"
@@ -166,7 +166,7 @@
                         HorizontalTextAlignment="Center"
                         HorizontalOptions="FillAndExpand"
                         TextColor="Black"
-                        Text="{Binding AlternetMobileNumber}" />
+                        Text="{Binding AlternativePhoneNumber}" />
                     </Frame>
 
                 <StackLayout Grid.Row="5"

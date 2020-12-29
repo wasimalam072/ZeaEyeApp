@@ -64,11 +64,11 @@ namespace ZeaEye.ViewModels
         #endregion
 
         #region Mobile Number
-        string _AlternetMobileNumber = string.Empty;
-        public string AlternetMobileNumber
+        string _AlternativePhoneNumber = string.Empty;
+        public string AlternativePhoneNumber
         {
-            get { return _AlternetMobileNumber; }
-            set { SetProperty(ref _AlternetMobileNumber, value); }
+            get { return _AlternativePhoneNumber; }
+            set { SetProperty(ref _AlternativePhoneNumber, value); }
         }
         #endregion
 
@@ -112,7 +112,7 @@ namespace ZeaEye.ViewModels
                 DocumentId = authorsList[authorsList.Length - 1];
             }
             var DocValueFatch = DocumentId;
-            var UserInformation = await baseApiServices.UpdateUserInformationId(DocumentId, FullName, MobileNumber, AlternetMobileNumber);
+            var UserInformation = await baseApiServices.UpdateUserInformationId(DocumentId, FullName, MobileNumber, AlternativePhoneNumber);
             UserDialogs.Instance.HideLoading();
         }
         #endregion
@@ -139,7 +139,7 @@ namespace ZeaEye.ViewModels
             EmailId = UserInformation[0].Document.Fields.Email.StringValue;
             FullName = UserInformation[0].Document.Fields.Name.StringValue;
             MobileNumber = UserInformation[0].Document.Fields.MobileNumber.StringValue;
-            AlternetMobileNumber = UserInformation[0].Document.Fields.AlternetMobileNumber.StringValue;
+            AlternativePhoneNumber = UserInformation[0].Document.Fields.AlternativePhoneNumber.StringValue;
             UserDialogs.Instance.HideLoading();
         }
         #endregion

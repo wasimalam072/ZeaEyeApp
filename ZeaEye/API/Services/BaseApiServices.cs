@@ -389,7 +389,7 @@ namespace ZeaEye.API.Services
 
 
         #region Get User Information
-        public async Task <List<Models.Request1.Root>> GetUserInformation(string UId)
+        public async Task <List<Models.Response11.Root>> GetUserInformation(string UId)
         {
             string url = "https://firestore.googleapis.com/v1/projects/zeaeye-development/databases/(default)/documents:runQuery";
             using (var client = new HttpClient())
@@ -434,7 +434,7 @@ namespace ZeaEye.API.Services
                 var response = await client.PostAsync(url, httpcontent);
                 var resStr = await response.Content.ReadAsStringAsync();
                 
-                var resultInformation = JsonConvert.DeserializeObject<List<Models.Request1.Root>>(resStr);
+                var resultInformation = JsonConvert.DeserializeObject<List<Models.Response11.Root>>(resStr);
                 
                 return resultInformation;
             }
@@ -503,7 +503,7 @@ namespace ZeaEye.API.Services
         #region update User Information using Email     
         public async Task<string> UpdateUserInformationId(string DocId, String FullName, string MobileNumber, string AlternativePhoneNumber)
         {
-            string url = "https://firestore.googleapis.com/v1beta1/projects/zeaeye-development/databases/(default)/documents/user_data/PC90eJhFi5dKpJY1WaO0?updateMask.fieldPaths=Name&updateMask.fieldPaths=MobileNumber&updateMask.fieldPaths=AlternativePhoneNumber";
+            string url = "https://firestore.googleapis.com/v1beta1/projects/zeaeye-development/databases/(default)/documents/user_data/" + DocId + "?updateMask.fieldPaths=Name&updateMask.fieldPaths=MobileNumber&updateMask.fieldPaths=AlternativePhoneNumber";
             var client = new HttpClient();
             var model = new Models.Request10.updatePartnerId
             {
