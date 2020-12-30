@@ -36,7 +36,7 @@
                             </Grid>
                         </Grid>
 
-                        <Grid Grid.Row="1" RowDefinitions="40,40,1,40,40,1,40,40, *" Padding="35,0,10,50"  Grid.RowSpan="5">
+                        <Grid Grid.Row="1" RowDefinitions="40,40,1,40,40,1,40,40, *" Padding="35,0,10,20"  Grid.RowSpan="5">
                             <Button Grid.Row="0"
                                     Text="Dashboard" 
                                     TextTransform="None" 
@@ -81,7 +81,7 @@
                                     Clicked="Button_Clicked_Signout" 
                                     TextColor="Gray" />
                             <StackLayout Grid.Row="8" HorizontalOptions="Start" VerticalOptions="EndAndExpand">
-                                <Label FontAttributes="Italic" FontSize="12">
+                                <Label TextColor="#7F7F7F" FontAttributes="Italic" FontSize="12">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="   Version Number: "/>

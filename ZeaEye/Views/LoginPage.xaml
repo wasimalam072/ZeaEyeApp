@@ -16,7 +16,7 @@
 
         <ScrollView AbsoluteLayout.LayoutFlags="All"
                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
-            <Grid RowDefinitions="Auto, 5, Auto, Auto, Auto, *" Padding="10, 80, 10, 50" RowSpacing="5">
+            <Grid RowDefinitions="Auto, 5, Auto, Auto, Auto, *" Padding="10, 80, 10, 20" RowSpacing="5">
                 <Image Grid.Row="0"
                        HeightRequest="180" 
                        WidthRequest="180"
@@ -38,7 +38,6 @@
                                           HorizontalOptions="FillAndExpand" 
                                           TextColor="Black" 
                                           Text="{Binding EmailId}">
-
                             </controls:CustomEntry>
                         <ImageButton Source="testImage"
                              VerticalOptions="Center"
@@ -84,7 +83,7 @@
                     </StackLayout >
                 </StackLayout>
                 <StackLayout Grid.Row="5" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
-                    <Label FontAttributes="Italic" FontSize="12">
+                    <Label TextColor="#7F7F7F" FontAttributes="Italic" FontSize="12">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Version Number: "/>
