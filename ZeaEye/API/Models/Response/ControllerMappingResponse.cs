@@ -29,7 +29,7 @@ namespace ZeaEye.API.Models.ResponseMapping
 
     public partial class Fields
     {
-        [JsonProperty("ControllerID")]
+        [JsonProperty("controllerId")]
         public Email ControllerID { get; set; }
         [JsonProperty("partnerId")]
         public Email PartnerId { get; set; }

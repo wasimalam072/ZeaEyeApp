@@ -115,10 +115,10 @@ namespace ZeaEye.API.Services
                     {
                         partnerId = new PartnerId { stringValue = partnerId },
                         userId = new UserId { stringValue = userId },
-                        Email = new Email { stringValue = Email },
-                        Name = new Name { stringValue = name },
-                        MobileNumber = new MobileNumber { stringValue = MobileNumber },
-                        AlternativeMobileNumber = new AlternativeMobileNumber { stringValue = AlternativeMobileNumber }
+                        email = new Email { stringValue = Email },
+                        name = new Name { stringValue = name },
+                        mobileNumber = new MobileNumber { stringValue = MobileNumber },
+                        alternativePhoneNumber = new AlternativeMobileNumber { stringValue = AlternativeMobileNumber }
                     }
                 };
 
@@ -152,7 +152,7 @@ namespace ZeaEye.API.Services
         {
           fields = new Models.Request6.Fields
           {
-            ControllerID = new Models.Request6.ControllerID { stringValue = ControllerID },
+            controllerId = new Models.Request6.ControllerID { stringValue = ControllerID },
             partnerId = new Models.Request6.PartnerId { stringValue = partnerId },
             userId = new Models.Request6.UserId { stringValue = userId },
             removed = new Models.Request6.Removed { booleanValue = removed }
@@ -207,7 +207,7 @@ namespace ZeaEye.API.Services
                                   {
                                       field = new Models.RequestMapping.Field
                                       {
-                                          fieldPath ="ControllerID"
+                                          fieldPath ="controllerId"
                                       },
                                       op="EQUAL",
                                       value = new Models.RequestMapping.Value
@@ -503,7 +503,7 @@ namespace ZeaEye.API.Services
         #region update User Information using Email     
         public async Task<string> UpdateUserInformationId(string DocId, String FullName, string MobileNumber, string AlternativePhoneNumber)
         {
-            string url = "https://firestore.googleapis.com/v1beta1/projects/zeaeye-development/databases/(default)/documents/user_data/" + DocId + "?updateMask.fieldPaths=Name&updateMask.fieldPaths=MobileNumber&updateMask.fieldPaths=AlternativePhoneNumber";
+            string url = "https://firestore.googleapis.com/v1beta1/projects/zeaeye-development/databases/(default)/documents/user_data/" + DocId + "?updateMask.fieldPaths=name&updateMask.fieldPaths=mobileNumber&updateMask.fieldPaths=alternativePhoneNumber";
             var client = new HttpClient();
             var model = new Models.Request10.updatePartnerId
             {

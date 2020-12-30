@@ -62,7 +62,7 @@ namespace ZeaEye.ViewModels
             //        }
             //         var UpdatePartnerId = await baseApiServices.UpdatePartnerId(DocumentId, Application.Current.Properties["PartneId"].ToString());
             //    }
-            //}o
+            //}
             var DocumentId = "";
             string userid = auth.GetUserId();
             var CheckingController = await baseApiServices.CheckControllerMapingExisting(contollerid, partnerid, true);
@@ -74,9 +74,7 @@ namespace ZeaEye.ViewModels
             }
             else
             {
-
                 var creatpartnewr = await baseApiServices.SaveControllerDocument(contollerid, partnerid, userid, true);
-
                 string DocValue = CheckingController.Item2;
                 string DocID = DocValue;
                 string[] authorsList = DocID.Split('/');

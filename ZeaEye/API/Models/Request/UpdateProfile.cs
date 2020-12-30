@@ -21,13 +21,13 @@ namespace ZeaEye.API.Models.Request10
 
     public class Fields
     {
-        [JsonProperty("MobileNumber")]
+        [JsonProperty("mobileNumber")]
         public MobileNumber MobileNumber { get; set; }
 
-        [JsonProperty("AlternativePhoneNumber")]
+        [JsonProperty("alternativePhoneNumber")]
         public AlternativePhoneNumber AlternativePhoneNumber { get; set; }
 
-        [JsonProperty("Name")]
+        [JsonProperty("name")]
         public FullName FullName { get; set; }
     }
 

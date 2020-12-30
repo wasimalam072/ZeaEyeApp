@@ -8,7 +8,7 @@
             <ContentPage.Content>
                     <Grid RowDefinitions="*,*">
 
-                        <Grid Grid.Row="0" ColumnSpacing="0" HeightRequest="120" Padding="50,25,0,40" BackgroundColor="#63ACCE">
+                        <Grid Grid.Row="0" ColumnSpacing="0" HeightRequest="120" Padding="50,25,0,20" BackgroundColor="#63ACCE">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
@@ -36,7 +36,7 @@
                             </Grid>
                         </Grid>
 
-                        <Grid Grid.Row="1" RowDefinitions="40,40,1,40,40,1,40,40, *" Padding="35,0,10,10"  Grid.RowSpan="5">
+                        <Grid Grid.Row="1" RowDefinitions="40,40,1,40,40,1,40,40, *" Padding="35,0,10,50"  Grid.RowSpan="5">
                             <Button Grid.Row="0"
                                     Text="Dashboard" 
                                     TextTransform="None" 

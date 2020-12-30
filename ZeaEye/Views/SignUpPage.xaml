@@ -13,7 +13,7 @@
                     HorizontalOptions="FillAndExpand">
         <ScrollView AbsoluteLayout.LayoutFlags="All" 
                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
-            <Grid RowDefinitions="Auto, 5, Auto, Auto, Auto, Auto, *" Padding="10, 80, 10, 20" RowSpacing="5">
+            <Grid RowDefinitions="Auto, 5, Auto, Auto, Auto, Auto, *" Padding="10, 80, 10, 50" RowSpacing="5">
                 <Image Grid.Row="0"
                        HeightRequest="180" 
                        WidthRequest="180"

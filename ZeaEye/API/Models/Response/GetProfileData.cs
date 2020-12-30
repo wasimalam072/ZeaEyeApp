@@ -14,7 +14,7 @@ namespace ZeaEye.API.Models.Response11
 
     public partial class Document
     {
-        [JsonProperty("Name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
 
         [JsonProperty("fields")]
@@ -29,22 +29,22 @@ namespace ZeaEye.API.Models.Response11
 
     public partial class Fields
     {
-        [JsonProperty("Name")]
+        [JsonProperty("name")]
         public Email Name { get; set; }
 
         [JsonProperty("userId")]
         public Email UserId { get; set; }
 
-        [JsonProperty("Email")]
+        [JsonProperty("email")]
         public Email Email { get; set; }
 
 
         // WASIM ALAM Add this field for Get Mobile Number Information  28 Dec 2020
-        [JsonProperty("AlternativePhoneNumber")]
+        [JsonProperty("alternativePhoneNumber")]
         public Email AlternativePhoneNumber { get; set; }
 
         // WASIM ALAM Add this field for Get Mobile Number Information  28 Dec 2020
-        [JsonProperty("MobileNumber")]
+        [JsonProperty("mobileNumber")]
         public Email MobileNumber { get; set; }
     }
 
