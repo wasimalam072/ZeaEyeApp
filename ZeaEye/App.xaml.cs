@@ -21,26 +21,33 @@ namespace ZeaEye
         private IAuth auth;
         public App()
         {
-            InitializeComponent();
-            auth = DependencyService.Get<IAuth>();
-            DependencyService.Register<MockDataStore>();
-            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+            try
             {
-                if (Xamarin.Essentials.Connectivity.NetworkAccess != Xamarin.Essentials.NetworkAccess.Internet)
+                InitializeComponent();
+                auth = DependencyService.Get<IAuth>();
+                DependencyService.Register<MockDataStore>();
+                Device.StartTimer(TimeSpan.FromSeconds(2), () =>
                 {
-                    Application.Current.MainPage = new InternetCheckPage();
-                }
-                return false;
-            });
-            Xamarin.Essentials.Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+                    if (Xamarin.Essentials.Connectivity.NetworkAccess != Xamarin.Essentials.NetworkAccess.Internet)
+                    {
+                        Application.Current.MainPage = new InternetCheckPage();
+                    }
+                    return false;
+                });
+                Xamarin.Essentials.Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
 
-            if (auth.IsSignIn())
-            {
-                MainPage = new MainView();
+                if (auth.IsSignIn())
+                {
+                    MainPage = new MainView();
+                }
+                else
+                {
+                    MainPage = new NavigationPage(new LoginPage());
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MainPage = new NavigationPage(new LoginPage());
+
             }
         }
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Acr.UserDialogs;
 using Foundation;
 using UIKit;
 
@@ -22,13 +22,19 @@ namespace ZeaEye.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            Firebase.Core.App.Configure();
-            global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
-            global::Xamarin.Forms.Forms.Init();
-            UINavigationBar.Appearance.TintColor = UIColor.White;
-            LoadApplication(new App());
+            try
+            {
+                Firebase.Core.App.Configure();
+                global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
+                global::Xamarin.Forms.Forms.Init();
+                LoadApplication(new App());
 
-            return base.FinishedLaunching(app, options);
+                return base.FinishedLaunching(app, options);
+            }
+            catch(Exception ex)
+            {
+                return true;
+            }
         }
     }
 }

@@ -22,13 +22,20 @@ namespace ZeaEye
         private IAuth auth;
         public MainView()
         {
-            InitializeComponent();
-            Instance = this;
-            auth = DependencyService.Get<IAuth>();
-            baseApiServices = new BaseApiServices();
-            BindingContext = new MainViewModel();
-            Detail = new NavigationPage(new AboutPage());
-            IsPresented = false;
+            try
+            {
+                InitializeComponent();
+                Instance = this;
+                auth = DependencyService.Get<IAuth>();
+                baseApiServices = new BaseApiServices();
+                BindingContext = new MainViewModel();
+                Detail = new NavigationPage(new AboutPage());
+                IsPresented = false;
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         private void Button_Clicked_Dashboard(object sender, EventArgs e)
