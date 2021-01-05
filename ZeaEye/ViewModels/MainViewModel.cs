@@ -12,19 +12,16 @@ namespace ZeaEye.ViewModels
     public class MainViewModel : BaseViewModel
     {
         BaseApiServices baseApiServices;
-        private IAppVersion appVersion;
         private IAuth auth;
         public MainViewModel()
         {
-            appVersion = DependencyService.Get<IAppVersion>();
-            VersionNumberDisplay = appVersion.GetVersion();
             auth = DependencyService.Get<IAuth>();
             baseApiServices = new BaseApiServices();
+            VersionNumberDisplay = VersionTracking.CurrentVersion;
             GetUserName();
         }
 
         #region User Name Display
-
         string _UserNameDisplay = string.Empty;
         public string UserNameDisplay
         {
@@ -36,11 +33,9 @@ namespace ZeaEye.ViewModels
 
         public async void GetUserName()
         {
-            UserDialogs.Instance.ShowLoading("Please wait...");
             string userid = auth.GetUserId();
             var UserInformation = await baseApiServices.GetUserInformation(userid);
             UserNameDisplay = UserInformation[0].Document.Fields.Name.StringValue;
-            UserDialogs.Instance.HideLoading();
         }
     }
 }

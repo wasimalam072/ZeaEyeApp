@@ -14,7 +14,7 @@
 
             <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
                   Padding="15,0,15,20"
-                  RowSpacing="10"
+                  RowSpacing="5"
                   VerticalOptions="CenterAndExpand"
                   HorizontalOptions="FillAndExpand">
                 <!--<Frame Grid.Row="0" Padding="0" CornerRadius="120" HorizontalOptions="CenterAndExpand">
@@ -34,7 +34,8 @@
                            IsVisible="{Binding EditTimeHide}"
                            HasShadow="False">
                     <controls:CustomEntry 
-                        Placeholder="Full Name" 
+                        Placeholder="Full Name"
+                        Margin="0,10,0,10"
                         PlaceholderColor="#7F7F7F"
                         FontFamily="AvenirNext"
                         IsReadOnly="True"
@@ -52,6 +53,7 @@
                            BorderColor="WhiteSmoke"
                            HasShadow="False">
                         <controls:CustomEntry
+                            Margin="0,10,0,10"
                             FontFamily="AvenirNext"
                             HorizontalTextAlignment="Center" 
                             HorizontalOptions="FillAndExpand" 
@@ -72,6 +74,7 @@
                         Placeholder="Email Id" 
                         PlaceholderColor="#7F7F7F"
                         FontFamily="AvenirNext"
+                        Margin="0,10,0,10"
                         IsReadOnly="True"
                         HorizontalTextAlignment="Center" 
                         HorizontalOptions="Fill" 
@@ -88,6 +91,7 @@
                             HasShadow="False">
                         <controls:CustomEntry
                             IsReadOnly="True"
+                            Margin="0,10,0,10"
                             FontFamily="AvenirNext"
                             Placeholder="Email Id" 
                             HorizontalTextAlignment="Center" 
@@ -105,7 +109,8 @@
                        BorderColor="WhiteSmoke"
                        IsVisible="{Binding EditTimeHide}"
                        HasShadow="False">
-                    <controls:CustomEntry 
+                    <controls:CustomEntry
+                        Margin="0,10,0,10"
                         Placeholder="Mobile Number" 
                         PlaceholderColor="#7F7F7F"
                         FontFamily="AvenirNext"
@@ -124,6 +129,7 @@
                            BorderColor="WhiteSmoke" 
                            HasShadow="False">
                     <controls:CustomEntry
+                           Margin="0,10,0,10"
                         FontFamily="AvenirNext"
                         Keyboard="Telephone"
                         Placeholder="Mobile Number"
@@ -141,7 +147,8 @@
                            BorderColor="WhiteSmoke"
                            IsVisible="{Binding EditTimeHide}"
                            HasShadow="False">
-                    <controls:CustomEntry 
+                    <controls:CustomEntry
+                           Margin="0,10,0,10"
                         Placeholder="Alternative Phone Number" 
                         PlaceholderColor="#7F7F7F"
                         FontFamily="AvenirNext"
@@ -160,6 +167,7 @@
                            BorderColor="WhiteSmoke" 
                            HasShadow="False">
                     <controls:CustomEntry
+                           Margin="0,10,0,10"
                         FontFamily="AvenirNext"
                         Keyboard="Telephone"
                         Placeholder="Alternative Phone Number"

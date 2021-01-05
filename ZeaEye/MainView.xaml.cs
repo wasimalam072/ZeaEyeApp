@@ -77,9 +77,9 @@ namespace ZeaEye
 
         }
 
-        private void Button_Clicked_Help(object sender, EventArgs e)
+        private async void Button_Clicked_Help(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri("https://zeaeye.com/"));
+            await Xamarin.Essentials.Browser.OpenAsync(new Uri("https://zeaeye.com/"));
             IsPresented = false;
         }
 

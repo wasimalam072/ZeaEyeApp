@@ -13,7 +13,6 @@ namespace ZeaEye
         Undefinded,
         Foreground,
         Background
-
     }
     public partial class App : Application
     {
@@ -24,6 +23,7 @@ namespace ZeaEye
             try
             {
                 InitializeComponent();
+                Xamarin.Essentials.VersionTracking.Track();
                 auth = DependencyService.Get<IAuth>();
                 DependencyService.Register<MockDataStore>();
                 Device.StartTimer(TimeSpan.FromSeconds(2), () =>

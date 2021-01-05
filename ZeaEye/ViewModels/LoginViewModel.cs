@@ -16,15 +16,13 @@ namespace ZeaEye.ViewModels
     {
         public new event PropertyChangedEventHandler PropertyChanged;
         private IAuth auth;
-        private IAppVersion appVersion;
         BaseApiServices baseApiServices;
         public LoginViewModel()
         {
             Title = "Log In";
             baseApiServices = new BaseApiServices();
             auth = DependencyService.Get<IAuth>();
-            appVersion = DependencyService.Get<IAppVersion>();
-            VersionNumberDisplay = appVersion.GetVersion();
+            VersionNumberDisplay = VersionTracking.CurrentVersion;
         }
 
         #region EmailID
