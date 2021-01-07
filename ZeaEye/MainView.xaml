@@ -8,7 +8,7 @@
             <ContentPage.Content>
                     <Grid RowDefinitions="*,*">
 
-                        <Grid Grid.Row="0" ColumnSpacing="0" HeightRequest="120" Padding="50,25,0,20" BackgroundColor="#63ACCE">
+                        <Grid Grid.Row="0" ColumnSpacing="0" HeightRequest="120" Padding="40,25,0,20" BackgroundColor="#63ACCE">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
