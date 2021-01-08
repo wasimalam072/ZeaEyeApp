@@ -73,11 +73,11 @@ namespace ZeaEye.ViewModels
 
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    await Application.Current.MainPage.Navigation.PopModalAsync();
+                    await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
                     await OnIndicatorScreenClicked("");
                 });
             };
-            await Application.Current.MainPage.Navigation.PushModalAsync(scanPage);
+            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(scanPage);
         }
     }
 }
