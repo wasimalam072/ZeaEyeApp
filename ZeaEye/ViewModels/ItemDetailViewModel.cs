@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -64,8 +65,20 @@ namespace ZeaEye.ViewModels
         }
         private async void OnIndicatorScreenUsingScanClicked(object obj)
         {
+            //ZXingScannerView zXingScannerView = new ZXingScannerView();
             ZXingScannerPage scanPage = new ZXingScannerPage();
-            scanPage.OnScanResult += async (result) =>
+            //zXingScannerView.Options = new ZXing.Mobile.MobileBarcodeScanningOptions
+            //{
+            //    PossibleFormats =
+            //   new List<ZXing.BarcodeFormat>
+            //           {
+            //                ZXing.BarcodeFormat.QR_CODE,
+            //                ZXing.BarcodeFormat.All_1D,
+            //                ZXing.BarcodeFormat.CODABAR,
+            //                ZXing.BarcodeFormat.,
+            //           }
+            //};
+            scanPage.OnScanResult += (result) =>
             {
                 Con = result.Text;
 

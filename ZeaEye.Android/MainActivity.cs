@@ -27,9 +27,9 @@ namespace ZeaEye.Droid
             if(app == null)
                 app =   FirebaseApp.InitializeApp(Application.Context);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-         
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
+            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
