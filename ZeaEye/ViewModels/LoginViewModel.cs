@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using ZeaEye.API.Services;
 using ZeaEye.Services;
 using ZeaEye.Views;
+using static Xamarin.Essentials.Permissions;
 
 namespace ZeaEye.ViewModels
 {
@@ -23,6 +24,17 @@ namespace ZeaEye.ViewModels
             baseApiServices = new BaseApiServices();
             auth = DependencyService.Get<IAuth>();
             VersionNumberDisplay = VersionTracking.CurrentVersion;
+            _=StoragePermission();
+        }
+
+        public async Task StoragePermission()
+        {
+            var status = await CheckAndRequestPermissionAsync(new Permissions.Camera());
+            if (status != PermissionStatus.Granted)
+            {
+                await StoragePermission();
+                // Notify user permission was denied
+            }
         }
 
         #region EmailID
@@ -121,5 +133,16 @@ namespace ZeaEye.ViewModels
             Application.Current.MainPage = new NavigationPage(new SignUpPage());
         }
         #endregion
+
+        public async Task<PermissionStatus> CheckAndRequestPermissionAsync<T>(T permission)
+           where T : BasePermission
+        {
+            var status = await permission.CheckStatusAsync();
+            if (status != PermissionStatus.Granted)
+            {
+                status = await permission.RequestAsync();
+            }
+            return status;
+        }
     }
 }
