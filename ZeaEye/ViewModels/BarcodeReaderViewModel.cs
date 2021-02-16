@@ -78,12 +78,12 @@ namespace ZeaEye.ViewModels
                     }
                 else
                 {
-                    await UserDialogs.Instance.AlertAsync("QR Value", "Error showing result", "Ok");
+                    await UserDialogs.Instance.AlertAsync("The QR code value is not assigned.", "Empty", "Ok");
                 }
             }
             catch (Exception ex)
             {
-                await UserDialogs.Instance.AlertAsync("QR Value", "Format not supported", "Ok");
+                await UserDialogs.Instance.AlertAsync("The QR Code value is not supported.", "Format", "Ok");
             }
             finally
             {
