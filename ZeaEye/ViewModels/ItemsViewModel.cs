@@ -28,7 +28,7 @@ namespace ZeaEye.ViewModels
         {
             try
             {
-                await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new ItemDetailPage());
+                await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new ItemDetailPage(null));
             }
             catch (Exception ex)
             {

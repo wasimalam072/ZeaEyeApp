@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:ZeaEye.ViewModels" 
-             xmlns:customcontrols="clr-namespace:ZeaEye.CustomControls"
+             xmlns:customcontrols="clr-namespace:ZeaEye.CustomControls" xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              x:Class="ZeaEye.Views.ItemDetailPage"
              Title="{Binding Title}" NavigationPage.HasBackButton="True"
              BackgroundImage="gradient_background.png"
@@ -10,9 +10,9 @@
     
     <!--Scam Your Controller-->
     
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
        <vm:ItemDetailViewModel/>
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
 
     <ContentPage.Content>
         <StackLayout Margin="20">

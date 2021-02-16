@@ -9,14 +9,18 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1821" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />  
-    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />  
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.470" />
     <PackageReference Include="Plugin.BLE" Version="2.1.1" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.4.168" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\CustomNavigationPage.xaml" />
+    <EmbeddedResource Remove="Views\ProductAlertPage.xaml" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="MainView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -45,5 +49,15 @@
     <EmbeddedResource Update="Views\YourDevicelistPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\Product.cs" />
+    <Compile Remove="Models\NavigationConstants.cs" />
+    <Compile Remove="Services\AlertService.cs" />
+    <Compile Remove="Services\DummyProductService.cs" />
+    <Compile Remove="Services\IAlertService.cs" />
+    <Compile Remove="Services\IProductService.cs" />
+    <Compile Remove="Views\CustomNavigationPage.xaml.cs" />
+    <Compile Remove="Views\ProductAlertPage.xaml.cs" />
   </ItemGroup>
 </Project>

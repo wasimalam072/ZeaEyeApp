@@ -15,10 +15,17 @@ namespace ZeaEye.ViewModels
         private IAuth auth;
         public MainViewModel()
         {
-            auth = DependencyService.Get<IAuth>();
-            baseApiServices = new BaseApiServices();
-            VersionNumberDisplay = VersionTracking.CurrentVersion;
-            GetUserName();
+            try
+            {
+                auth = DependencyService.Get<IAuth>();
+                baseApiServices = new BaseApiServices();
+                VersionNumberDisplay = VersionTracking.CurrentVersion;
+                GetUserName();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         #region User Name Display
@@ -33,9 +40,16 @@ namespace ZeaEye.ViewModels
 
         public async void GetUserName()
         {
-            string userid = auth.GetUserId();
-            var UserInformation = await baseApiServices.GetUserInformation(userid);
-            UserNameDisplay = UserInformation[0].Document.Fields.Name.StringValue;
+            try
+            {
+                string userid = auth.GetUserId();
+                var UserInformation = await baseApiServices.GetUserInformation(userid);
+                UserNameDisplay = UserInformation[0].Document.Fields.Name.StringValue;
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

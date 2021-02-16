@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Xamarin.Forms;
 using ZeaEye.API.Services;
-using ZeaEye.Models;
 using ZeaEye.Views;
-using ZXing.Net.Mobile.Forms;
 
 namespace ZeaEye.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
         BaseApiServices baseApiServices;
-
         bool CheckBoolValue;
-        public ItemDetailViewModel()
+        public ItemDetailViewModel(string valueQR)
         {
+            Con = valueQR == null? "": valueQR;
             baseApiServices = new BaseApiServices();
             Title = "Add you first Controller";
         }
@@ -63,34 +58,12 @@ namespace ZeaEye.ViewModels
                 return new Command(OnIndicatorScreenUsingScanClicked);
             }
         }
+
         private async void OnIndicatorScreenUsingScanClicked(object obj)
-        {
-            //ZXingScannerView zXingScannerView = new ZXingScannerView();
-            ZXingScannerPage scanPage = new ZXingScannerPage();
-            //zXingScannerView.Options = new ZXing.Mobile.MobileBarcodeScanningOptions
-            //{
-            //    PossibleFormats =
-            //   new List<ZXing.BarcodeFormat>
-            //           {
-            //                ZXing.BarcodeFormat.QR_CODE,
-            //                ZXing.BarcodeFormat.All_1D,
-            //                ZXing.BarcodeFormat.CODABAR,
-            //                ZXing.BarcodeFormat.,
-            //           }
-            //};
-            scanPage.OnScanResult += (result) =>
-            {
-                Con = result.Text;
-
-                scanPage.IsScanning = true;
-
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
-                    await OnIndicatorScreenClicked("");
-                });
-            };
-            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(scanPage);
+         {
+            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new BarcodeReaderPage((x)=> {
+                Con = x;
+            }));
         }
     }
 }
