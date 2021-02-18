@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ZeaEye.CustomControls"
+             x:Class="ZeaEye.Views.ProfilePage"
+             Title="{Binding Title}"
+             BackgroundImage="gradient_background.png">
+
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+
+        <ScrollView AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
+                  Padding="15,0,15,20"
+                  RowSpacing="5"
+                  VerticalOptions="CenterAndExpand"
+                  HorizontalOptions="FillAndExpand">
+                <!--<Frame Grid.Row="0" Padding="0" CornerRadius="120" HorizontalOptions="CenterAndExpand">
+                    <Image 
+                       HorizontalOptions="CenterAndExpand"
+                       Aspect="AspectFit"
+                       WidthRequest="120"
+                       HeightRequest="120"
+                       Source="ic_logo"/>
+                </Frame>-->
+
+                    <Frame Grid.Row="1"
+                           Padding="5" 
+                           HorizontalOptions="Fill" 
+                           BackgroundColor="Transparent" 
+                           BorderColor="WhiteSmoke"
+                           IsVisible="{Binding EditTimeHide}"
+                           HasShadow="False">
+                    <controls:CustomEntry 
+                        Placeholder="Full Name"
+                        Margin="0,10,0,10"
+                        PlaceholderColor="#7F7F7F"
+                        FontFamily="AvenirNext"
+                        IsReadOnly="True"
+                        HorizontalTextAlignment="Center" 
+                        HorizontalOptions="Fill" 
+                        TextColor="Black" 
+                        Text="{Binding FullName}"/>
+                </Frame>
+
+                    <Frame Grid.Row="1"
+                           Padding="5"
+                           IsVisible="{Binding EditTimeVisible}"
+                           HorizontalOptions="FillAndExpand"
+                           BackgroundColor="Transparent" 
+                           BorderColor="WhiteSmoke"
+                           HasShadow="False">
+                        <controls:CustomEntry
+                            Margin="0,10,0,10"
+                            FontFamily="AvenirNext"
+                            HorizontalTextAlignment="Center" 
+                            HorizontalOptions="FillAndExpand" 
+                            TextColor="Black"
+                            Placeholder="Full Name" 
+                            Text="{Binding FullName}">
+                            </controls:CustomEntry>
+                    </Frame>
+
+                 <Frame Grid.Row="2"
+                        Padding="5" 
+                        HorizontalOptions="Fill" 
+                        BackgroundColor="Transparent" 
+                        BorderColor="WhiteSmoke"
+                        IsVisible="{Binding EditTimeHide}"
+                        HasShadow="False">
+                    <controls:CustomEntry 
+                        Placeholder="Email Id" 
+                        PlaceholderColor="#7F7F7F"
+                        FontFamily="AvenirNext"
+                        Margin="0,10,0,10"
+                        IsReadOnly="True"
+                        HorizontalTextAlignment="Center" 
+                        HorizontalOptions="Fill" 
+                        TextColor="Black" 
+                        Text="{Binding EmailId}"/>
+                </Frame>
+
+                     <Frame Grid.Row="2"
+                            Padding="5"
+                            IsVisible="{Binding EditTimeVisible}"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Transparent" 
+                            BorderColor="WhiteSmoke"
+                            HasShadow="False">
+                        <controls:CustomEntry
+                            IsReadOnly="True"
+                            Margin="0,10,0,10"
+                            FontFamily="AvenirNext"
+                            Placeholder="Email Id" 
+                            HorizontalTextAlignment="Center" 
+                            HorizontalOptions="FillAndExpand" 
+                            TextColor="Black"
+                            Text="{Binding EmailId}">
+                            </controls:CustomEntry>
+                    </Frame>
+
+
+                <Frame Grid.Row="3"
+                       Padding="5" 
+                       HorizontalOptions="Fill" 
+                       BackgroundColor="Transparent" 
+                       BorderColor="WhiteSmoke"
+                       IsVisible="{Binding EditTimeHide}"
+                       HasShadow="False">
+                    <controls:CustomEntry
+                        Margin="0,10,0,10"
+                        Placeholder="Mobile Number" 
+                        PlaceholderColor="#7F7F7F"
+                        FontFamily="AvenirNext"
+                        IsReadOnly="True"
+                        MaxLength="12"
+                        HorizontalTextAlignment="Center" 
+                        HorizontalOptions="Fill" 
+                        TextColor="Black" 
+                        Text="{Binding MobileNumber}"/>
+                </Frame>
+
+                    <Frame Grid.Row="3"
+                           Padding="5"
+                           IsVisible="{Binding EditTimeVisible}"
+                           HorizontalOptions="FillAndExpand" 
+                           BackgroundColor="Transparent" 
+                           BorderColor="WhiteSmoke" 
+                           HasShadow="False">
+                    <controls:CustomEntry
+                           Margin="0,10,0,10"
+                        FontFamily="AvenirNext"
+                        Keyboard="Telephone"
+                        MaxLength="12"
+                        Placeholder="Mobile Number"
+                        HorizontalTextAlignment="Center" 
+                        HorizontalOptions="FillAndExpand"
+                        TextColor="Black"
+                        Text="{Binding MobileNumber}"
+                           />
+                    </Frame>
+
+                    <Frame Grid.Row="4"
+                           Padding="5" 
+                           HorizontalOptions="Fill" 
+                           BackgroundColor="Transparent" 
+                           BorderColor="WhiteSmoke"
+                           IsVisible="{Binding EditTimeHide}"
+                           HasShadow="False">
+                    <controls:CustomEntry
+                           Margin="0,10,0,10"
+                        Placeholder="Alternative Phone Number" 
+                        PlaceholderColor="#7F7F7F"
+                        FontFamily="AvenirNext"
+                        IsReadOnly="True"
+                        MaxLength="12"
+                        HorizontalTextAlignment="Center" 
+                        HorizontalOptions="Fill" 
+                        TextColor="Black" 
+                        Text="{Binding AlternativePhoneNumber}"/>
+                </Frame>
+
+                    <Frame Grid.Row="4"
+                           Padding="5"
+                           IsVisible="{Binding EditTimeVisible}"
+                           HorizontalOptions="FillAndExpand" 
+                           BackgroundColor="Transparent" 
+                           BorderColor="WhiteSmoke" 
+                           HasShadow="False">
+                    <controls:CustomEntry
+                           Margin="0,10,0,10"
+                        FontFamily="AvenirNext"
+                        Keyboard="Telephone"
+                        MaxLength="12"
+                        Placeholder="Alternative Phone Number"
+                        HorizontalTextAlignment="Center"
+                        HorizontalOptions="FillAndExpand"
+                        TextColor="Black"
+                        Text="{Binding AlternativePhoneNumber}" />
+                    </Frame>
+
+                <StackLayout Grid.Row="5"
+                             Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Button Text="Change Password"
+                                IsEnabled="{Binding EditTimeHide}"
+                                Command="{Binding ChangePasswordCommand}"
+                                TextTransform="None"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Button Text="Edit"
+                                IsVisible="{Binding EditTimeHide}"
+                                Command="{Binding EditCommand}"
+                                TextTransform="None"/>
+                        <Button Text="Update"
+                                IsVisible="{Binding EditTimeVisible}"
+                                Command="{Binding UpdateCommand}"
+                                TextTransform="None"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </AbsoluteLayout>
+</ContentPage>

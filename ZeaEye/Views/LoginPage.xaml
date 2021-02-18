@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:vm="clr-namespace:ZeaEye.ViewModels" 
-             xmlns:controls="clr-namespace:ZeaEye.CustomControls" xmlns:behaviors="clr-namespace:ZeaEye.Behaviors"
+             xmlns:controls="clr-namespace:ZeaEye.CustomControls"
              mc:Ignorable="d"
              x:Class="ZeaEye.Views.LoginPage"
              NavigationPage.HasNavigationBar="False"
@@ -17,7 +16,7 @@
 
         <ScrollView AbsoluteLayout.LayoutFlags="All"
                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
-            <Grid RowDefinitions="Auto, 5, Auto, Auto, Auto, Auto, Auto" Padding="10, 80, 10, 0" RowSpacing="5">
+            <Grid RowDefinitions="Auto, 5, Auto, Auto, Auto, *" Padding="10, 80, 10, 20" RowSpacing="5">
                 <Image Grid.Row="0"
                        HeightRequest="180" 
                        WidthRequest="180"
@@ -39,11 +38,6 @@
                                           HorizontalOptions="FillAndExpand" 
                                           TextColor="Black" 
                                           Text="{Binding EmailId}">
-                            <!--<controls:CustomEntry.Behaviors>
-                            <behaviors:EmailValidatorBehavior />
-                        </controls:CustomEntry.Behaviors>-->
-
-
                             </controls:CustomEntry>
                         <ImageButton Source="testImage"
                              VerticalOptions="Center"
@@ -87,6 +81,16 @@
                                     NumberOfTapsRequired="1" />
                         </StackLayout.GestureRecognizers>
                     </StackLayout >
+                </StackLayout>
+                <StackLayout Grid.Row="5" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
+                    <Label TextColor="#7F7F7F" FontAttributes="Italic" FontSize="12">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Version Number: "/>
+                                <Span Text="{Binding VersionNumberDisplay}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                 </StackLayout>
             </Grid>
         </ScrollView>

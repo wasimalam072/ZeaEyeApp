@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="ZeaEye.Views.BarcodeReaderPage"
+             Title="Scan your QR code">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="flashSwitchItem" Icon="light_off.png" Command="{Binding ToggleCameraFlashCommand}" />
+    </ContentPage.ToolbarItems>
+    <AbsoluteLayout>
+        <zxing:ZXingScannerView x:Name="scannerView"
+                                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                                AbsoluteLayout.LayoutFlags="All"
+                                IsScanning="{Binding IsScanning}"
+                                IsTorchOn="{Binding IsTorchOn}"
+                                ScanResultCommand="{Binding OnScanResultCommand}"                                
+                                Result="{Binding ScanResult, Mode=TwoWay}" />
+
+        <zxing:ZXingDefaultOverlay x:Name="scannerOverlay"
+                                   AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                                   AbsoluteLayout.LayoutFlags="All"
+                                   BottomText="Center the QR code in view"
+                                   ShowFlashButton="false"
+                                   Opacity="0.9"  />
+    </AbsoluteLayout>
+</ContentPage>

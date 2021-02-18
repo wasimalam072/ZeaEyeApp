@@ -20,7 +20,6 @@ namespace ZeaEye.API.Services
         }
         #endregion
 
-
         #region LocateController
         public async Task<LocateControllerResponse> LocateController(string zeserialnr)
         {
@@ -34,9 +33,10 @@ namespace ZeaEye.API.Services
         }
         #endregion
         #region SaveDocument
-        public async Task<string> SaveDocument(string Email, string partnerId, string userId, string name)
+        public async Task<string> SaveDocument(string Email, string partnerId, string userId, string name, string MobileNumber, string AlternativeMobileNumber)
         {
-            return await baseAPI.SaveDocument(Email, partnerId, userId, name);
+            //return await baseAPI.SaveDocument(Email, partnerId, userId, name); WASIM Add two value MobileNumber and AlternatvieMobileNumber value 28 Dec 2020
+            return await baseAPI.SaveDocument(Email, partnerId, userId, name, MobileNumber, AlternativeMobileNumber);
         }
         #endregion
         #region GetPartnerId
@@ -56,6 +56,14 @@ namespace ZeaEye.API.Services
         public async Task<string> UpdatePartnerId(string DocId, String partnerId)
         {
             return await baseAPI.UpdatePartnerId(DocId, partnerId);
+        }
+        #endregion
+
+        // WASIM Add This Method value 28 Dec 2020
+        #region UpdateUserInformation
+        public async Task<string> UpdateUserInformationId(string DocId, String FullName, string MobileNumber, string AlternetMobileNumber)
+        {
+            return await baseAPI.UpdateUserInformationId(DocId, FullName, MobileNumber, AlternetMobileNumber);
         }
         #endregion
 

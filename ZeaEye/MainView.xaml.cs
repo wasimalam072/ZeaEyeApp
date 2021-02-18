@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
@@ -21,12 +22,31 @@ namespace ZeaEye
         private IAuth auth;
         public MainView()
         {
-            InitializeComponent();
-            Instance = this;
-            auth = DependencyService.Get<IAuth>();
-            baseApiServices = new BaseApiServices();
-            BindingContext = new MainViewModel();
+            try
+            {
+                InitializeComponent();
+                Instance = this;
+                auth = DependencyService.Get<IAuth>();
+                baseApiServices = new BaseApiServices();
+                BindingContext = new MainViewModel();
+                Detail = new NavigationPage(new AboutPage());
+                IsPresented = false;
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
+        private void Button_Clicked_Dashboard(object sender, EventArgs e)
+        {
             Detail = new NavigationPage(new AboutPage());
+            IsPresented = false;
+        }
+
+        private void Button_ClickedProfile(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new ProfilePage());
             IsPresented = false;
         }
 
@@ -56,16 +76,13 @@ namespace ZeaEye
             }
 
         }
-        private void Button_Clicked_Dashboard(object sender, EventArgs e)
+
+        private async void Button_Clicked_Help(object sender, EventArgs e)
         {
-            Detail = new NavigationPage(new AboutPage());
+            await Xamarin.Essentials.Browser.OpenAsync(new Uri("https://zeaeye.com/"));
             IsPresented = false;
         }
-        private void Button_Clicked_Help(object sender, EventArgs e)
-        {
-            Device.OpenUri(new Uri("https://zeaeye.com/"));
-            IsPresented = false;
-        }
+
         private void Button_Clicked_Signout(object sender, EventArgs e)
         {
             
@@ -75,6 +92,7 @@ namespace ZeaEye
                 if (signOut)
                 {
                     Application.Current.Properties["PartneId"] = "";
+                    Application.Current.Properties["Email"] = "";
                     Application.Current.MainPage = new LoginPage();
                     IsPresented = false;
                 }

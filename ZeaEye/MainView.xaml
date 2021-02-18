@@ -4,11 +4,11 @@
              x:Class="ZeaEye.MainView"
                   >
     <MasterDetailPage.Master>
-        <ContentPage BackgroundColor="White" IconImageSource="menu"  Title="Menu">
+        <ContentPage BackgroundColor="White" IconImageSource="menu" Title="Menu">
             <ContentPage.Content>
-                <StackLayout Orientation="Vertical" >
-                    <StackLayout HeightRequest="120" Padding="50,25,0,0" BackgroundColor="#63acce">
-                        <Grid ColumnSpacing="0">
+                    <Grid RowDefinitions="*,*">
+
+                        <Grid Grid.Row="0" ColumnSpacing="0" HeightRequest="120" Padding="40,25,0,20" BackgroundColor="#63ACCE">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
@@ -21,19 +21,22 @@
                                        HorizontalOptions="Start"
                                        Aspect="AspectFit"
                                        WidthRequest="50"
-                                       Source="ic_logo"/>
+                                       Source="ic_logo">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ProfileViewCommand}"/> 
+                                    </Image.GestureRecognizers>
+                                 </Image>
                                 <Label Grid.Row="1"
                                        x:Name="UserName"
                                        HorizontalOptions="Start"
                                        VerticalTextAlignment="Start"
-                                       Text="{Binding UserName}"
+                                       Text="{Binding UserNameDisplay}"
                                        TextColor="White"
-                                       FontSize="18"/>
+                                       FontSize="16"/>
                             </Grid>
                         </Grid>
-                    </StackLayout>
-                    <StackLayout Margin="40,0,10,0">
-                        <Grid RowDefinitions="40,40,1,40,1,40,40" Grid.RowSpan="5">
+
+                        <Grid Grid.Row="1" RowDefinitions="40,40,1,40,40,1,40,40, *" Padding="35,0,10,20"  Grid.RowSpan="5">
                             <Button Grid.Row="0"
                                     Text="Dashboard" 
                                     TextTransform="None" 
@@ -42,37 +45,53 @@
                                     Clicked="Button_Clicked_Dashboard" 
                                     TextColor="Gray"/>
                             <Button Grid.Row="1"
-                                    Text="Controls   " 
-                                    TextTransform="None" 
+                                    Text="Controls      "
+                                    TextTransform="None"
                                     BackgroundColor="Transparent" 
                                     HorizontalOptions="Start"
                                     TextColor="Gray"/>
                             <BoxView Grid.Row="2" Margin="10,0,0,0" HeightRequest="1" BackgroundColor="LightGray"/>
-                            <Button Grid.Row="3" 
+                            <Button Grid.Row="3"
+                                    TextTransform="None"
+                                    BackgroundColor="Transparent" 
+                                    HorizontalOptions="Start" 
+                                    Text="Profile       " 
+                                    Clicked="Button_ClickedProfile" 
+                                    TextColor="Gray"/>
+                            <Button Grid.Row="4" 
                                     TextTransform="None" 
                                     BackgroundColor="Transparent" 
                                     HorizontalOptions="Start" 
                                     Text="Your Device(s)" 
                                     Clicked="Button_Clicked" 
                                     TextColor="Gray"/>
-                            <BoxView Grid.Row="4" Margin="10,0,0,0" HeightRequest="1" BackgroundColor="LightGray"/>
-                            <Button Grid.Row="5" 
+                            <BoxView Grid.Row="5" Margin="10,0,0,0" HeightRequest="1" BackgroundColor="LightGray"/>
+                            <Button Grid.Row="6" 
                                     TextTransform="None" 
                                     BackgroundColor="Transparent" 
                                     HorizontalOptions="Start" 
-                                    Text="Help           " 
+                                    Text="Help          " 
                                     Clicked="Button_Clicked_Help" 
                                     TextColor="Gray"/>
-                            <Button Grid.Row="6" 
+                            <Button Grid.Row="7" 
                                     TextTransform="None" 
                                     BackgroundColor="Transparent" 
                                     HorizontalOptions="Start" 
                                     Text="Sign out        " 
                                     Clicked="Button_Clicked_Signout" 
                                     TextColor="Gray" />
+                            <StackLayout Grid.Row="8" HorizontalOptions="Start" VerticalOptions="EndAndExpand">
+                                <Label TextColor="#7F7F7F" FontAttributes="Italic" FontSize="12">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="   Version Number: "/>
+                                            <Span Text="{Binding VersionNumberDisplay}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
                         </Grid>
-                    </StackLayout>
-                </StackLayout>
+                        </Grid>
             </ContentPage.Content>
         </ContentPage>
     </MasterDetailPage.Master>

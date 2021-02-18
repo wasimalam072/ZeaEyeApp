@@ -14,13 +14,27 @@ namespace ZeaEye.Droid.Services
 
         public string GetUserId()
         {
-            var user = Firebase.Auth.FirebaseAuth.GetInstance(MainActivity.app).CurrentUser;
+            var user = FirebaseAuth.GetInstance(MainActivity.app).CurrentUser;
             return user.Uid;
+        }
+
+        public string GetCurrentUser(string UpdatePassword)
+        {
+            try
+            {
+                var user = FirebaseAuth.GetInstance(MainActivity.app).CurrentUser;
+                user.UpdatePasswordAsync(UpdatePassword);
+                return user.Uid;
+            }
+            catch(Exception ex)
+            {
+                return string.Empty;
+            }
         }
 
         public bool IsSignIn()
         {
-            var user = Firebase.Auth.FirebaseAuth.Instance.CurrentUser;
+            var user = FirebaseAuth.Instance.CurrentUser;
             return user != null;
         }
 
@@ -62,9 +76,6 @@ namespace ZeaEye.Droid.Services
             {
                 var newUser = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, password);
                 return newUser.ToString();
-                //var newUser = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, password);
-                //var token = await newUser.User.GetIdTokenAsync(false);
-                //return token.Token;
             }
             catch(FirebaseAuthInvalidUserException e)
             {

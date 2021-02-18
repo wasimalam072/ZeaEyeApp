@@ -23,7 +23,7 @@ namespace ZeaEye.API.Models.Request6
 
   public class Fields
   {
-    public ControllerID ControllerID { get; set; }
+    public ControllerID controllerId { get; set; }
     public PartnerId partnerId { get; set; }
     public UserId userId { get; set; }
     public Removed removed { get; set; }
@@ -33,5 +33,4 @@ namespace ZeaEye.API.Models.Request6
   {
     public Fields fields { get; set; }
   }
-
 }

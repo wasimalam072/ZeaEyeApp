@@ -19,8 +19,8 @@ namespace ZeaEye.API.Interfaces
         #region SaveCntroller
         Task<string> SaveController(string controllerId, string partnerId);
         #endregion
-        #region Save DOcument
-        Task<string> SaveDocument(string Email, string partnerId, string userId, string name);
+        #region Save Document
+        Task<string> SaveDocument(string Email, string partnerId, string userId, string name, string MobileNumber, string AlternativeMobileNumber);
         #endregion
         #region GetPartnerId
         Task<Tuple<string, string>> GetPartnerId(string userId);
