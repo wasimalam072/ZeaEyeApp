@@ -9,7 +9,14 @@ namespace ZeaEye.Views
     {
         public AboutPage()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
     }
 }

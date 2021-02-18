@@ -9,8 +9,12 @@ namespace ZeaEye.Views
     {
         public ItemDetailPage()
         {
+            
+        }
+        public ItemDetailPage(string ValueQR)
+        {
             InitializeComponent();
-            BindingContext = new ItemDetailViewModel();
+            BindingContext = new ItemDetailViewModel(ValueQR);
         }
 
         private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)

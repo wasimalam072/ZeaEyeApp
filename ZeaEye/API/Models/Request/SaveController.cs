@@ -23,8 +23,21 @@ namespace ZeaEye.API.Models.Request
     {
         public string stringValue { get; set; }
     }
+    
 
     public class Name
+    {
+        public string stringValue { get; set; }
+    }
+
+    // WASIM ALAM Add this field for Get Mobile Number Information  28 Dec 2020
+    public class MobileNumber
+    {
+        public string stringValue { get; set; }
+    }
+
+    // WASIM ALAM Add this field for Get Alternative Mobile Number Information  28 Dec 2020
+    public class AlternativeMobileNumber
     {
         public string stringValue { get; set; }
     }
@@ -33,8 +46,13 @@ namespace ZeaEye.API.Models.Request
     {
         public PartnerId partnerId { get; set; }
         public UserId userId { get; set; }
-        public Email Email { get; set; }
-        public Name Name { get; set; }
+        public Email email { get; set; }
+        public Name name { get; set; }
+
+        // WASIM ALAM Add this field for Get Mobile Number Information  28 Dec 2020
+        public MobileNumber mobileNumber { get; set; }
+        // WASIM ALAM Add this field for Get Alternative Mobile Number Information  28 Dec 2020
+        public AlternativeMobileNumber alternativePhoneNumber { get; set; }
     }
 
     public class SaveDoc

@@ -31,17 +31,26 @@ namespace ZeaEye.API.Models.Request1
 
     public partial class Fields
     {
-        [JsonProperty("Name")]
+        [JsonProperty("name")]
         public Email Name { get; set; }
 
         [JsonProperty("userId")]
         public Email UserId { get; set; }
 
-        [JsonProperty("Email")]
+        [JsonProperty("email")]
         public Email Email { get; set; }
 
         [JsonProperty("partnerId")]
         public Email PartnerId { get; set; }
+
+
+        // WASIM ALAM Add this field for Get Mobile Number Information  28 Dec 2020
+        [JsonProperty("alternativePhoneNumber")]
+        public Email AlternativePhoneNumber { get; set; }
+
+        // WASIM ALAM Add this field for Get Mobile Number Information  28 Dec 2020
+        [JsonProperty("mobileNumber")]
+        public Email MobileNumber { get; set; }
     }
 
     public partial class Email

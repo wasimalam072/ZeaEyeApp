@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:vm="clr-namespace:ZeaEye.ViewModels" 
              xmlns:customcontrols="clr-namespace:ZeaEye.CustomControls" 
              xmlns:behaviors="clr-namespace:ZeaEye.Behaviors"
              x:Class="ZeaEye.Views.SignUpPage"
@@ -14,7 +13,7 @@
                     HorizontalOptions="FillAndExpand">
         <ScrollView AbsoluteLayout.LayoutFlags="All" 
                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
-            <Grid RowDefinitions="Auto, 5, Auto, Auto, Auto, Auto, Auto" Padding="10, 80, 10, 20" RowSpacing="5">
+            <Grid RowDefinitions="Auto, 5, Auto, Auto, Auto, Auto, *" Padding="10, 80, 10, 20" RowSpacing="5">
                 <Image Grid.Row="0"
                        HeightRequest="180" 
                        WidthRequest="180"
@@ -101,6 +100,16 @@
                                     NumberOfTapsRequired="1" />
                         </StackLayout.GestureRecognizers>
                     </StackLayout >
+                </StackLayout>
+                <StackLayout Grid.Row="6" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
+                    <Label FontAttributes="Italic" TextColor="#7F7F7F" FontSize="12">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Version Number: "/>
+                                <Span Text="{Binding VersionNumberDisplay}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                 </StackLayout>
             </Grid>
         </ScrollView>

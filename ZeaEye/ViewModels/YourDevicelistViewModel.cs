@@ -65,7 +65,7 @@ namespace ZeaEye.ViewModels
         }
         private async void OnscancontrollerScreenClicked(object obj)
         {
-            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new ItemDetailPage());
+            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new ItemDetailPage(null));
         }
     }
 }

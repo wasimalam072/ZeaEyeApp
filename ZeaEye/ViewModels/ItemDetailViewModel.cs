@@ -1,21 +1,17 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Xamarin.Forms;
 using ZeaEye.API.Services;
-using ZeaEye.Models;
 using ZeaEye.Views;
-using ZXing.Net.Mobile.Forms;
 
 namespace ZeaEye.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
         BaseApiServices baseApiServices;
-
         bool CheckBoolValue;
-        public ItemDetailViewModel()
+        public ItemDetailViewModel(string valueQR)
         {
+            Con = valueQR == null? "": valueQR;
             baseApiServices = new BaseApiServices();
             Title = "Add you first Controller";
         }
@@ -62,22 +58,12 @@ namespace ZeaEye.ViewModels
                 return new Command(OnIndicatorScreenUsingScanClicked);
             }
         }
+
         private async void OnIndicatorScreenUsingScanClicked(object obj)
-        {
-            ZXingScannerPage scanPage = new ZXingScannerPage();
-            scanPage.OnScanResult += async (result) =>
-            {
-                Con = result.Text;
-
-                scanPage.IsScanning = true;
-
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await Application.Current.MainPage.Navigation.PopModalAsync();
-                    await OnIndicatorScreenClicked("");
-                });
-            };
-            await Application.Current.MainPage.Navigation.PushModalAsync(scanPage);
+         {
+            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new BarcodeReaderPage((x)=> {
+                Con = x;
+            }));
         }
     }
 }
