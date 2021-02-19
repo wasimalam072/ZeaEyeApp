@@ -40,6 +40,7 @@
                                               HorizontalOptions="FillAndExpand"
                                               TextColor="Black"
                                               ReturnType="Next"
+                                              Keyboard="Email"
                                               Text="{Binding EmailId}">
                             </controls:CustomEntry>
                         <ImageButton Source="testImage"

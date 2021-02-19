@@ -34,7 +34,8 @@
                         FontFamily="AvenirNext"
                         Margin="10,0,0,0"
                         ReturnType="Next"
-                        HorizontalOptions="FillAndExpand" 
+                        HorizontalOptions="FillAndExpand"
+                        Keyboard="Email"
                         TextColor="Black" 
                         Text="{Binding EmailId}">
                         <customcontrols:CustomEntry.Behaviors>
