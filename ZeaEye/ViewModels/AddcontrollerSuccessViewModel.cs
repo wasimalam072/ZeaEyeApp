@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using ZeaEye.API.Services;
 using ZeaEye.Services;
@@ -19,7 +20,8 @@ namespace ZeaEye.ViewModels
             Data = data;
             Title = "Add a new Controller";
             ControllerIdValue = Data[0];
-            partnerid = Application.Current.Properties["PartneId"].ToString();
+            partnerid = Preferences.Get("PartneId", string.Empty);
+            //partnerid = Application.Current.Properties["PartneId"].ToString();
             contollerid = Data[2];
 
         }

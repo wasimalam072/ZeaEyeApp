@@ -87,11 +87,13 @@ namespace ZeaEye.ViewModels
                     string userid = auth.GetUserId();
                     string DocumentId = "";
                     var partner = await baseApiServices.GetPartnerId(userid);
-                    Application.Current.Properties["PartneId"] = partner.Item1; 
-                    if (string.IsNullOrEmpty(Application.Current.Properties["PartneId"].ToString()))
+                    Preferences.Set("PartneId", partner.Item1);
+                    //Application.Current.Properties["PartneId"] = partner.Item1; 
+                    if (string.IsNullOrEmpty(Preferences.Get("PartneId", string.Empty)))
                     {
                             var creatpartnewr = await baseApiServices.CreatePartnerId(EmailId);
-                            Application.Current.Properties["PartneId"] = creatpartnewr.partnerId;
+                            Preferences.Set("PartneId", creatpartnewr.partnerId);
+                            //Application.Current.Properties["PartneId"] = creatpartnewr.partnerId;
                             string DocValue = partner.Item2;
                             string DocID = DocValue;
                             string[] authorsList = DocID.Split('/');
@@ -99,8 +101,8 @@ namespace ZeaEye.ViewModels
                             {
                                 DocumentId = authorsList[authorsList.Length - 1];
                             }
-                            var UpdatePartnerId = await baseApiServices.UpdatePartnerId(DocumentId, Application.Current.Properties["PartneId"].ToString());
-
+                           // var UpdatePartnerId = await baseApiServices.UpdatePartnerId(DocumentId, Application.Current.Properties["PartneId"].ToString());
+                           var UpdatePartnerId = await baseApiServices.UpdatePartnerId(DocumentId, Preferences.Get("PartneId", string.Empty));
                     }
                     Application.Current.Properties["Email"] = EmailId;
                     Application.Current.MainPage = new MainView();

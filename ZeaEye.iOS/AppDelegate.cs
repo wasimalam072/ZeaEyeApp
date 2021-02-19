@@ -4,6 +4,7 @@ using System.Linq;
 using Acr.UserDialogs;
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace ZeaEye.iOS
 {
@@ -24,11 +25,14 @@ namespace ZeaEye.iOS
         {
             try
             {
+
                 Firebase.Core.App.Configure();
-                global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
                 global::Xamarin.Forms.Forms.Init();
                 ZXing.Net.Mobile.Forms.iOS.Platform.Init();
                 LoadApplication(new App());
+                UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes() { TextColor = UIColor.White });
+                UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(210, 45, 58);
+                UINavigationBar.Appearance.TintColor = UIColor.White;
                 return base.FinishedLaunching(app, options);
             }
             catch(Exception ex)

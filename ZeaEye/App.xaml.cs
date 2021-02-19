@@ -1,8 +1,6 @@
 ﻿using System;
-using Plugin.Connectivity;
-using Plugin.Connectivity.Abstractions;
+using Xamarin.Essentials;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using ZeaEye.Services;
 using ZeaEye.Views;
 
@@ -23,18 +21,10 @@ namespace ZeaEye
             try
             {
                 InitializeComponent();
-                Xamarin.Essentials.VersionTracking.Track();
+                Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+                VersionTracking.Track();
                 auth = DependencyService.Get<IAuth>();
                 DependencyService.Register<MockDataStore>();
-                Device.StartTimer(TimeSpan.FromSeconds(2), () =>
-                {
-                    if (Xamarin.Essentials.Connectivity.NetworkAccess != Xamarin.Essentials.NetworkAccess.Internet)
-                    {
-                        Application.Current.MainPage = new InternetCheckPage();
-                    }
-                    return false;
-                });
-                Xamarin.Essentials.Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
 
                 if (auth.IsSignIn())
                 {
@@ -45,7 +35,7 @@ namespace ZeaEye
                     MainPage = new NavigationPage(new LoginPage());
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -53,9 +43,13 @@ namespace ZeaEye
 
         private void Connectivity_ConnectivityChanged(object sender, Xamarin.Essentials.ConnectivityChangedEventArgs e)
         {
-            if (Xamarin.Essentials.Connectivity.NetworkAccess != Xamarin.Essentials.NetworkAccess.Internet)
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                Application.Current.MainPage = new InternetCheckPage();
+                App.Current.MainPage.Navigation.PushModalAsync(new InternetCheckPage());
+            }
+            else
+            {
+                App.Current.MainPage.Navigation.PopModalAsync();
             }
         }
 

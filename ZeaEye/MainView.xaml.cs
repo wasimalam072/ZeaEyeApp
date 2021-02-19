@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ZeaEye.API.Services;
@@ -53,7 +54,8 @@ namespace ZeaEye
         private async void Button_Clicked(object sender, EventArgs e)
         {
             UserDialogs.Instance.ShowLoading("Please wait...");
-            var partnerid = Application.Current.Properties["PartneId"].ToString();
+            var partnerid = Preferences.Get("PartneId", string.Empty);
+            //var partnerid = Application.Current.Properties["PartneId"] as string;
             if (string.IsNullOrEmpty(partnerid))
             {
                 Detail = new NavigationPage(new ItemsPage());
@@ -91,7 +93,8 @@ namespace ZeaEye
                 var signOut = auth.SignOut();
                 if (signOut)
                 {
-                    Application.Current.Properties["PartneId"] = "";
+                    Preferences.Set("PartneId", string.Empty);
+                    //Application.Current.Properties["PartneId"] = "";
                     Application.Current.Properties["Email"] = "";
                     Application.Current.MainPage = new LoginPage();
                     IsPresented = false;

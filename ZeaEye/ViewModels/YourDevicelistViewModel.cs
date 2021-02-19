@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using ZeaEye.API.Services;
 using ZeaEye.Views;
 using ZeaEye.API.Models.Response;
+using Xamarin.Essentials;
 
 namespace ZeaEye.ViewModels
 {
@@ -27,8 +28,9 @@ namespace ZeaEye.ViewModels
 
         async Task DeviceList()
         {
-            UserDialogs.Instance.ShowLoading("Please wait...");
-            var result = await baseApiServices.GetDevices(Application.Current.Properties["PartneId"].ToString());
+            UserDialogs.Instance.ShowLoading("Please wait..."); 
+            //var result = await baseApiServices.GetDevices(Application.Current.Properties["PartneId"].ToString());
+            var result = await baseApiServices.GetDevices(Preferences.Get("PartneId", string.Empty));
             var result1 = result.controllers[0];
             Devicelistdata = result.controllers;
             UserDialogs.Instance.HideLoading();

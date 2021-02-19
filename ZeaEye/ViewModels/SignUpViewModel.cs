@@ -125,7 +125,8 @@ namespace ZeaEye.ViewModels
                     var signOut = auth.SignOut();
                     if (signOut)
                     {
-                        Application.Current.Properties["PartneId"] = "";
+                        Preferences.Set("PartneId", string.Empty);
+                        //Application.Current.Properties["PartneId"] = "";
                         Application.Current.MainPage = new LoginPage();
                     }
                 }

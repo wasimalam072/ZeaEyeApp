@@ -10,13 +10,13 @@
             <Label Text="No internet connection"
                    x:Name="InfoLabel"
                    Margin="0,0,0,20"/>
-            <Button Text="Retry"
+            <!--<Button Text="Retry"
                     TextTransform="None"
                     WidthRequest="150"
                     CornerRadius="0"
                     FontSize="Default"
                     Clicked="Button_Clicked"
-                    HorizontalOptions="Center"/>
+                    HorizontalOptions="Center"/>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
