@@ -1,9 +1,4 @@
 ﻿using Acr.UserDialogs;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using ZeaEye.API.Services;
 using ZeaEye.Services;
@@ -44,25 +39,10 @@ namespace ZeaEye.ViewModels
                 return new Command(OnDevicelistcommandScreenClicked);
             }
         }
+
         private async void OnDevicelistcommandScreenClicked(object obj)
         {
             UserDialogs.Instance.ShowLoading("Please wait...");
-            //string DocumentId = "";
-            //if (string.IsNullOrEmpty(Application.Current.Properties["PartneId"].ToString()))
-            //{
-            //    var creatpartnewr = await baseApiServices.CreatePartnerId(Application.Current.Properties["Email"].ToString());
-            //    if (!string.IsNullOrEmpty(creatpartnewr.partnerId))
-            //    {
-            //        Application.Current.Properties["PartneId"] = partnerid = creatpartnewr.partnerId;
-            //        string DocID = Application.Current.Properties["DocValue"].ToString();
-            //            string[] authorsList = DocID.Split('/');
-            //        for(var i=0;i<=authorsList.Length-1;i++)
-            //        {
-            //            DocumentId= authorsList[authorsList.Length - 1];
-            //        }
-            //         var UpdatePartnerId = await baseApiServices.UpdatePartnerId(DocumentId, Application.Current.Properties["PartneId"].ToString());
-            //    }
-            //}
             var DocumentId = "";
             string userid = auth.GetUserId();
             var CheckingController = await baseApiServices.CheckControllerMapingExisting(contollerid, partnerid, true);
@@ -70,7 +50,7 @@ namespace ZeaEye.ViewModels
             if (!string.IsNullOrEmpty(Application.Current.Properties["ControllerExist"].ToString()))
             {
                 UserDialogs.Instance.HideLoading();
-                await Application.Current.MainPage.DisplayAlert("Please Contact Admin", "There is Some Problem with the Controller", "ok");
+                await UserDialogs.Instance.AlertAsync("There is some problem with the Controller.", "Please contact Admin", "Ok");
             }
             else
             {
@@ -87,7 +67,7 @@ namespace ZeaEye.ViewModels
                 if (res != "Connected")
                 {
                     UserDialogs.Instance.HideLoading();
-                    await Application.Current.MainPage.DisplayAlert("Please Contact Admin", "Controller already mappped", "ok");
+                    await UserDialogs.Instance.AlertAsync("Controller already mappped.", "Please contact Admin", "Ok");
                 }
             }
             UserDialogs.Instance.HideLoading();
@@ -102,7 +82,7 @@ namespace ZeaEye.ViewModels
         }
         private async void BackFromToAddDeviceScreen(object obj)
         {
-            (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.RemovePage((Application.Current.MainPage as MasterDetailPage).Detail.Navigation.NavigationStack[(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.NavigationStack.Count - 2]);
+             (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.RemovePage((Application.Current.MainPage as MasterDetailPage).Detail.Navigation.NavigationStack[(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.NavigationStack.Count - 2]);
             _ = (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
         }
     }

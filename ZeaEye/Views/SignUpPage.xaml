@@ -13,7 +13,9 @@
                     HorizontalOptions="FillAndExpand">
         <ScrollView AbsoluteLayout.LayoutFlags="All" 
                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
-            <Grid RowDefinitions="Auto, 5, Auto, Auto, Auto, Auto, *" Padding="10, 80, 10, 20" RowSpacing="5">
+            <Grid RowDefinitions="Auto, 5, Auto, Auto, Auto, Auto, *"
+                  Padding="10, 80, 10, 20"
+                  RowSpacing="5">
                 <Image Grid.Row="0"
                        HeightRequest="180" 
                        WidthRequest="180"
@@ -31,6 +33,7 @@
                         HorizontalTextAlignment="Center"
                         FontFamily="AvenirNext"
                         Margin="10,0,0,0"
+                        ReturnType="Next"
                         HorizontalOptions="FillAndExpand" 
                         TextColor="Black" 
                         Text="{Binding EmailId}">
@@ -39,8 +42,8 @@
                         </customcontrols:CustomEntry.Behaviors>
                     </customcontrols:CustomEntry>
                         <ImageButton Source="testImage"
-                             VerticalOptions="Center"
-                             HorizontalOptions="End"/>
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="End"/>
                         </StackLayout>
                 </Frame>
                 <Frame Grid.Row="3"
@@ -55,13 +58,14 @@
                         PlaceholderColor="#7F7F7F"
                         FontFamily="AvenirNext"
                         Margin="18,0,0,0"
+                        ReturnType="Next"
                         HorizontalTextAlignment="Center" 
                         HorizontalOptions="FillAndExpand" 
                         TextColor="Black" 
                         Text="{Binding FirstName}"/>
                      <ImageButton Source="testImage"
-                             VerticalOptions="Center"
-                             HorizontalOptions="End"/>
+                                  VerticalOptions="Center"
+                                  HorizontalOptions="End"/>
                         </StackLayout>
                 </Frame>
                 <Frame Grid.Row="4"
@@ -76,33 +80,39 @@
                             IsPassword="true" 
                             PlaceholderColor="#7F7F7F"
                             Margin="18,0,0,0"
+                            ReturnType="Send"
                             FontFamily="AvenirNext"
                             HorizontalTextAlignment="Center" 
                             HorizontalOptions="FillAndExpand" 
                             TextColor="Black" 
                             Text="{Binding Password}"/>
                         <ImageButton Source="Right_Arrow"
-                             VerticalOptions="Center"
-                             HorizontalOptions="End"
-                             Command="{Binding SignUpCommand}"/>
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="End"
+                                     Command="{Binding SignUpCommand}"/>
                     </StackLayout>
                 </Frame>
-                <StackLayout Grid.Row="5" Spacing="12" 
+                <StackLayout Grid.Row="5"
+                             Spacing="12" 
                              HorizontalOptions="Fill">
                     <StackLayout Spacing="5">
                         <Label Text="Already have an account? Sign in" 
                                HorizontalOptions="Center"
                                FontFamily="AvenirNext"
-                               TextColor="#7F7F7F" FontSize="16" />
+                               TextColor="#7F7F7F"
+                               FontSize="16" />
                         <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer
-                                    Command="{Binding LogInScreenCommand}"
-                                    NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Command="{Binding LogInScreenCommand}"
+                                                  NumberOfTapsRequired="1" />
                         </StackLayout.GestureRecognizers>
                     </StackLayout >
                 </StackLayout>
-                <StackLayout Grid.Row="6" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
-                    <Label FontAttributes="Italic" TextColor="#7F7F7F" FontSize="12">
+                <StackLayout Grid.Row="6"
+                             HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="End">
+                    <Label FontAttributes="Italic"
+                           TextColor="#7F7F7F"
+                           FontSize="12">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Version Number: "/>

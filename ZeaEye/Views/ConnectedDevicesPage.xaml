@@ -3,71 +3,87 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZeaEye.Views.ConnectedDevicesPage"
              BackgroundImageSource="gradient_background.png"
-             Title="{Binding Title}"
-             >
+             Title="{Binding Title}">
+
     <AbsoluteLayout Margin="20,20,20,0">
-        <ListView   AbsoluteLayout.LayoutBounds="0,0,1,0.16"
-                    AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional" 
-                     Grid.Row="0"
-                    BackgroundColor="White"
-                       ItemsSource="{Binding ControllerDevicesListData2}"
-                       SeparatorVisibility="Default"
-                       HasUnevenRows="true">
+        <ListView Grid.Row="0"
+                  AbsoluteLayout.LayoutBounds="0,0,1,0.16"
+                  AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional" 
+                  BackgroundColor="White"
+                  ItemsSource="{Binding ControllerDevicesListData2}"
+                  SeparatorVisibility="Default"
+                  HasUnevenRows="true">
             <ListView.Header>
-                <StackLayout BackgroundColor="#f2f2f2" Orientation="Horizontal" HorizontalOptions="Fill">
-                    <Label TextColor="Black" Text="Selected Device" 
-                           HorizontalOptions="Center" Margin="20,10,0,10" FontSize="18"/>
+                <StackLayout BackgroundColor="#f2f2f2"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Fill">
+                    <Label TextColor="Black"
+                           Text="Selected Device" 
+                           HorizontalOptions="Center"
+                           Margin="20,10,0,10"
+                           FontSize="18"/>
                 </StackLayout>
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Margin="10,10,0,0" Orientation="Horizontal">
+                        <StackLayout Margin="10,10,0,0"
+                                     Orientation="Horizontal">
                             <Image Source="Watch.png"
-                                               HeightRequest="50"
-                                               WidthRequest="50"
-                                               Aspect="AspectFit"
-                                               Margin="10,0,5,0"/>
+                                   HeightRequest="50"
+                                   WidthRequest="50"
+                                   Aspect="AspectFit"
+                                   Margin="10,0,5,0"/>
                             <Label Text="{Binding serialNumber}"
-                                               TextColor="#000000"
-                                               VerticalTextAlignment="Center"
-                                               FontFamily="HelveticaNeue"
-                                               FontSize="16"/>
+                                   TextColor="#000000"
+                                   VerticalTextAlignment="Center"
+                                   FontFamily="HelveticaNeue"
+                                   FontSize="16"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <ListView   AbsoluteLayout.LayoutBounds="0,0.25,1,0.26"   
-                    AbsoluteLayout.LayoutFlags="XProportional,YProportional, HeightProportional, WidthProportional"
-                     Grid.Row="0"
-                    BackgroundColor="White"
-                       ItemsSource="{Binding ControllerList2}"
-                       SeparatorVisibility="Default"
-                    SeparatorColor="LightGray"
-                       HasUnevenRows="true">
+        <ListView Grid.Row="0"
+                  AbsoluteLayout.LayoutBounds="0,0.25,1,0.26"   
+                  AbsoluteLayout.LayoutFlags="XProportional,YProportional, HeightProportional, WidthProportional"
+                  BackgroundColor="White"
+                  ItemsSource="{Binding ControllerList2}"
+                  SeparatorVisibility="Default"
+                  SeparatorColor="LightGray"
+                  HasUnevenRows="true">
             <ListView.Header>
-                <StackLayout BackgroundColor="#f2f2f2" Orientation="Horizontal" HorizontalOptions="Fill">
-                    <Label TextColor="Black" Text="Choose Controller" HorizontalOptions="Center" Margin="20,10,0,10" FontSize="18"/>
+                <StackLayout BackgroundColor="#f2f2f2"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Fill">
+                    <Label TextColor="Black"
+                           Text="Choose Controller"
+                           HorizontalOptions="Center"
+                           Margin="20,10,0,10"
+                           FontSize="18"/>
                 </StackLayout>
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout Margin="10,10,10,10" Orientation="Horizontal">
+                            <StackLayout Margin="10,10,10,10"
+                                         Orientation="Horizontal">
                                 <Image Source="group.png"
-                                               HeightRequest="50"
-                                               WidthRequest="50"
-                                               Aspect="AspectFit"
-                                               Margin="10,0,5,0"/>
+                                       HeightRequest="50"
+                                       WidthRequest="50"
+                                       Aspect="AspectFit"
+                                       Margin="10,0,5,0"/>
                                 <Label Text="{Binding serialNumber}"
-                                               TextColor="#000000"
-                                               VerticalTextAlignment="Center"
-                                               FontFamily="HelveticaNeue"
-                                               FontSize="16"/>
-                                <Button Text="Select >" TextTransform="None" WidthRequest="150" HorizontalOptions="EndAndExpand"/>
+                                       TextColor="#000000"
+                                       VerticalTextAlignment="Center"
+                                       FontFamily="HelveticaNeue"
+                                       FontSize="16"/>
+                                <Button Text="Select >"
+                                        TextTransform="None"
+                                        WidthRequest="150"
+                                        HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell.View>
                     </ViewCell>

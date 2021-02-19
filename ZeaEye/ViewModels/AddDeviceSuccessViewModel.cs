@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 using Acr.UserDialogs;
 using Xamarin.Forms;
 using ZeaEye.API.Models.Response;
@@ -50,12 +47,12 @@ namespace ZeaEye.ViewModels
 
             if(result == "created")
             {
-                await Application.Current.MainPage.DisplayAlert("Created", "New Device added", "Ok");
+                await UserDialogs.Instance.AlertAsync("New Device added.", "Created", "Ok");
                 MainView.Instance.Detail = new NavigationPage(new YourDevicelistPage());
             }
             if(result == "conflict")
             {
-                await Application.Current.MainPage.DisplayAlert("Conflict", "This bluetooth device already added", "Ok");
+                await UserDialogs.Instance.AlertAsync("This bluetooth device already added.", "Conflict", "Ok");
             }
             UserDialogs.Instance.HideLoading();
         }

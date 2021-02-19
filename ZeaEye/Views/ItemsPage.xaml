@@ -2,8 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZeaEye.Views.ItemsPage"
-             xmlns:vm="clr-namespace:ZeaEye.ViewModels"  
-             xmlns:model="clr-namespace:ZeaEye.Models"  
              x:Name="BrowseItemsPage"
              BackgroundImageSource="gradient_background.png"
              Title="{Binding Title}">
@@ -26,10 +24,10 @@
                    Margin="0,5,0,0"
                    HorizontalOptions="FillAndExpand">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text=" Add your first Controller" 
-                       TextColor="White" 
-                       VerticalOptions="Center"
-                       FontSize="16"/>
+                    <Label Text=" Add your first Controller"
+                           TextColor="White"
+                           VerticalOptions="Center"
+                           FontSize="16"/>
                     <Image Source="ic_plus_icon.png"
                            Aspect="AspectFit"
                            HorizontalOptions="EndAndExpand" 

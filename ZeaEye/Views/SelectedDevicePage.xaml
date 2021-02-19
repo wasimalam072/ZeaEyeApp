@@ -6,65 +6,95 @@
              BackgroundImageSource="gradient_background.png">
 
     <AbsoluteLayout Margin="15,15,15,0">
-        
-        <ListView   AbsoluteLayout.LayoutBounds="0,0,1,0.18"
-                    AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional" 
-                     Grid.Row="0"
-                    BackgroundColor="White"
-                       ItemsSource="{Binding ControllerData}"
-                       SeparatorVisibility="Default"
-                       HasUnevenRows="true">
+        <ListView AbsoluteLayout.LayoutBounds="0,0,1,0.18"
+                  AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional" 
+                  Grid.Row="0"
+                  BackgroundColor="White"
+                  ItemsSource="{Binding ControllerData}"
+                  SeparatorVisibility="Default"
+                  HasUnevenRows="true">
             <ListView.Header>
-                <StackLayout BackgroundColor="#f2f2f2" Orientation="Horizontal" HorizontalOptions="Fill">
-                    <Label TextColor="Black" Text="Selected Controller" 
-                           HorizontalOptions="Center" Margin="20,10,0,10" FontSize="18"/>
+                <StackLayout BackgroundColor="#f2f2f2"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Fill">
+                    <Label TextColor="Black"
+                           Text="Selected Controller" 
+                           HorizontalOptions="Center"
+                           Margin="20,10,0,10"
+                           FontSize="18"/>
                 </StackLayout>
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Margin="10,10,0,10" Orientation="Horizontal">
+                        <StackLayout Margin="10,10,0,10"
+                                     Orientation="Horizontal">
                             <Image Source="group.png"
-                                               HeightRequest="50"
-                                               WidthRequest="50"
-                                               Aspect="AspectFit"
-                                               Margin="10,0,5,0"/>
+                                   HeightRequest="50"
+                                   WidthRequest="50"
+                                   Aspect="AspectFit"
+                                   Margin="10,0,5,0"/>
                             <Label Text="{Binding zeaEyeSerialNumber}"
-                                               TextColor="#000000"
-                                               VerticalTextAlignment="Center"
-                                               FontFamily="HelveticaNeue"
-                                               FontSize="16"/>
+                                   TextColor="#000000"
+                                   VerticalTextAlignment="Center"
+                                   FontFamily="HelveticaNeue"
+                                   FontSize="16"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <ListView   AbsoluteLayout.LayoutBounds="0,0.27,1,0.28"
-                    AbsoluteLayout.LayoutFlags="XProportional,YProportional, HeightProportional, WidthProportional"
-                     Grid.Row="0"
-                    BackgroundColor="White"
-                    x:Name="DeviceNameListSelectedData"
-                       ItemsSource="{Binding ControllerDevicesListData1}"
-                       SeparatorVisibility="Default"
-                    SeparatorColor="LightGray"
-                       HasUnevenRows="true">
+        <ListView AbsoluteLayout.LayoutBounds="0,0.27,1,0.28"
+                  AbsoluteLayout.LayoutFlags="XProportional,YProportional, HeightProportional, WidthProportional"
+                  Grid.Row="0"
+                  BackgroundColor="White"
+                  x:Name="DeviceNameListSelectedData"
+                  ItemsSource="{Binding ControllerDevicesListData1}"
+                  SeparatorVisibility="Default"
+                  SeparatorColor="LightGray"
+                  HasUnevenRows="true">
             <ListView.Header>
-                <StackLayout BackgroundColor="#f2f2f2" Orientation="Vertical" HorizontalOptions="Fill">
-                        <Label TextColor="Black" Text="Selected device type" HorizontalOptions="Start" Margin="20,10,0,10" FontSize="18"/>
-                    <StackLayout x:Name="NewStack" BackgroundColor="Red" Orientation="Horizontal" IsVisible="{Binding IsActivate}"  HeightRequest="60">
+                <StackLayout BackgroundColor="#f2f2f2"
+                             Orientation="Vertical"
+                             HorizontalOptions="Fill">
+                        <Label TextColor="Black"
+                               Text="Selected device type"
+                               HorizontalOptions="Start"
+                               Margin="20,10,0,10"
+                               FontSize="18"/>
+                    <StackLayout x:Name="NewStack"
+                                 BackgroundColor="Red"
+                                 Orientation="Horizontal"
+                                 IsVisible="{Binding IsActivate}"
+                                 HeightRequest="60">
                                    <StackLayout Orientation="Vertical">
-                            <Image Source="bluetooth" Margin="30,15,0,0" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Start"/>
-                            <Label Margin="75,-40,0,0" HorizontalOptions="FillAndExpand" Text="Activate Bluetooth" TextColor="White"/>
-                            <Label Margin="75,-5,0,0" Text="to locate Device" TextColor="White"/>
+                                        <Image Source="bluetooth"
+                                               Margin="30,15,0,0"
+                                               Aspect="AspectFit"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Start"/>
+                                        <Label Margin="75,-40,0,0"
+                                               HorizontalOptions="FillAndExpand"
+                                               Text="Activate Bluetooth"
+                                               TextColor="White"/>
+                                        <Label Margin="75,-5,0,0"
+                                               Text="to locate Device"
+                                               TextColor="White"/>
                                    </StackLayout>
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,0,10,0">
-                                    <Button Text="Activate" HeightRequest="30" CornerRadius="0" Padding="0" FontAttributes="None"
-                                        VerticalOptions="Center" WidthRequest="100" TextTransform="None"
-                                        BindingContext="{Binding Source={x:Reference DeviceNameListSelectedData}, 
-                                         Path=BindingContext}"
-                                         Command="{Binding ActivateBluetoothCommand}"
-                                        HorizontalOptions="EndAndExpand" BackgroundColor="#4091e0"/>
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="EndAndExpand"
+                                             Margin="0,0,10,0">
+                                    <Button Text="Activate"
+                                            HeightRequest="30"
+                                            CornerRadius="0"
+                                            Padding="0"
+                                            FontAttributes="None"
+                                            VerticalOptions="Center"
+                                            WidthRequest="100" TextTransform="None"
+                                            BindingContext="{Binding Source={x:Reference DeviceNameListSelectedData}, Path=BindingContext}"
+                                            Command="{Binding ActivateBluetoothCommand}"
+                                            HorizontalOptions="EndAndExpand" BackgroundColor="#4091e0"/>
                                     <!--<Image Source="bluetooth"
                                            Aspect="AspectFit"
                                            BackgroundColor="Green"
@@ -73,7 +103,7 @@
                                            Margin="0,0,0,0"
                                            WidthRequest="15"/>-->
                                 </StackLayout>
-                                </StackLayout>
+                    </StackLayout>
                  </StackLayout>
             </ListView.Header>
             <ListView.ItemTemplate>
@@ -81,7 +111,8 @@
                     <ViewCell>
                         <ViewCell.View>
                             <StackLayout Orientation="Vertical">
-                                <StackLayout Margin="10,10,20,10" Orientation="Horizontal">
+                                <StackLayout Margin="10,10,20,10"
+                                             Orientation="Horizontal">
                                     <Image Source="Watch.png"
                                                HeightRequest="50"
                                                WidthRequest="50"
@@ -102,47 +133,53 @@
                        
         <ListView   AbsoluteLayout.LayoutBounds="0,0.80,1,0.38"   
                     AbsoluteLayout.LayoutFlags="XProportional,YProportional, HeightProportional, WidthProportional"
-                     Grid.Row="0"
+                    Grid.Row="0"
                     BackgroundColor="White"
-                     x:Name="SelectedBluetoothData"
+                    x:Name="SelectedBluetoothData"
                     ItemsSource="{Binding ControllerDevicesListData12}"
-                       SeparatorVisibility="Default"
+                    SeparatorVisibility="Default"
                     SeparatorColor="LightGray"
-                       HasUnevenRows="true">
+                    HasUnevenRows="true">
             <ListView.Header>
-                <StackLayout BackgroundColor="#f2f2f2" Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label TextColor="Black" Text="Discoverable device(s)" HorizontalOptions="Center" Margin="20,10,0,10" FontSize="18"/>
+                <StackLayout BackgroundColor="#f2f2f2"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Fill">
+                        <Label TextColor="Black"
+                               Text="Discoverable device(s)"
+                               HorizontalOptions="Center"
+                               Margin="20,10,0,10"
+                               FontSize="18"/>
                  </StackLayout>
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell x:Name="SelectedBluetoothDataType">
                         <ViewCell.View>
-                            <StackLayout Margin="10,10,20,10" Orientation="Horizontal">
+                            <StackLayout Margin="10,10,20,10"
+                                         Orientation="Horizontal">
                                 <Image Source="Watch.png"
-                                               HeightRequest="50"
-                                               WidthRequest="50"
-                                               Aspect="AspectFit"
-                                               Margin="10,0,0,0"/>
-                                <StackLayout Margin="10,0,0,0" Orientation="Vertical">
+                                       HeightRequest="50"
+                                       WidthRequest="50"
+                                       Aspect="AspectFit"
+                                       Margin="10,0,0,0"/>
+                                <StackLayout Margin="10,0,0,0"
+                                             Orientation="Vertical">
                                     <Label Text="{Binding MacAddress}"
-                                               TextColor="#000000"
+                                           TextColor="#000000"
                                            LineBreakMode="TailTruncation"
-                                               VerticalTextAlignment="Center"
-                                               FontFamily="HelveticaNeue"
-                                               FontSize="16"/>
+                                           VerticalTextAlignment="Center"
+                                           FontFamily="HelveticaNeue"
+                                           FontSize="16"/>
                                     <Label Text="{Binding DeviceName}"
-                                               TextColor="#000000"
-                                               VerticalTextAlignment="Center"
-                                               FontFamily="HelveticaNeue"
-                                               FontSize="16"/>
+                                           TextColor="#000000"
+                                           VerticalTextAlignment="Center"
+                                           FontFamily="HelveticaNeue"
+                                           FontSize="16"/>
                                 </StackLayout>
                   <StackLayout.GestureRecognizers>
-                      <TapGestureRecognizer BindingContext="{Binding Source={x:Reference SelectedBluetoothData}, 
-                                         Path=BindingContext}"
+                      <TapGestureRecognizer BindingContext="{Binding Source={x:Reference SelectedBluetoothData}, Path=BindingContext}"
                                          Command="{Binding SelectBluetoothCommand}"  
-                                         CommandParameter="{Binding Source={x:Reference SelectedBluetoothDataType}, 
-                                                    Path=BindingContext}" />
+                                         CommandParameter="{Binding Source={x:Reference SelectedBluetoothDataType}, Path=BindingContext}" />
                   </StackLayout.GestureRecognizers>
                             </StackLayout>
                         </ViewCell.View>
@@ -150,15 +187,12 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-                                <ActivityIndicator x:Name="ActivityIndicator" 
-                                                   IsRunning="{Binding IsBusyIsLoader}"
-                                                   IsEnabled="True"
-                                                   IsVisible="True"
-                                                   Color="#7F7F7F"
-                                                   Margin="300, 190,0,0"
-                                    
-                                    />
+        <ActivityIndicator x:Name="ActivityIndicator"
+                           IsRunning="{Binding IsBusyIsLoader}"
+                           IsEnabled="True"
+                           IsVisible="True"
+                           Color="#7F7F7F"
+                           Margin="300, 190,0,0" />                        
 
         <Label Text="Need help?" 
                TextDecorations="Underline"

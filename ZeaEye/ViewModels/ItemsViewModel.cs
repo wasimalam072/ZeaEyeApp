@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-
-using ZeaEye.Models;
+﻿using Xamarin.Forms;
 using ZeaEye.Views;
 
 namespace ZeaEye.ViewModels
@@ -14,7 +7,7 @@ namespace ZeaEye.ViewModels
     {
         public ItemsViewModel()
         {
-            Title = "Your Device";
+            Title = "Your Devices";
         }
 
         public Command FrameCommand
@@ -26,14 +19,7 @@ namespace ZeaEye.ViewModels
         }
         private async void OnFrameCommandClicked(object obj)
         {
-            try
-            {
-                await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new ItemDetailPage(null));
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new ItemDetailPage(null));
         }
     }
 }

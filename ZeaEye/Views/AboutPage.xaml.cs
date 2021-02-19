@@ -1,7 +1,5 @@
-﻿using System;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
+using ZeaEye.ViewModels;
 
 namespace ZeaEye.Views
 {
@@ -9,14 +7,8 @@ namespace ZeaEye.Views
     {
         public AboutPage()
         {
-            try
-            {
-                InitializeComponent();
-            }
-            catch(Exception ex)
-            {
-
-            }
+            InitializeComponent();
+            BindingContext = new AboutViewModel();
         }
     }
 }

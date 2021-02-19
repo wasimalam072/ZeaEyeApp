@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using Xamarin.Essentials;
@@ -33,7 +30,6 @@ namespace ZeaEye.ViewModels
             if (status != PermissionStatus.Granted)
             {
                 await StoragePermission();
-                // Notify user permission was denied
             }
         }
 
@@ -69,17 +65,17 @@ namespace ZeaEye.ViewModels
             {
                 if (string.IsNullOrEmpty(EmailId) && string.IsNullOrEmpty(Password))
                 {
-                    await Application.Current.MainPage.DisplayAlert("Empty", "Email Id and Password are mandatory.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Email Id and Password are mandatory.", "Empty", "Ok");
                     return;
                 }
                 if (string.IsNullOrEmpty(EmailId))
                 {
-                    await Application.Current.MainPage.DisplayAlert("Empty", "Email Id is mandatory.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Email Id is mandatory.", "Empty", "Ok");
                     return;
                 }
                 if (string.IsNullOrEmpty(Password))
                 {
-                    await Application.Current.MainPage.DisplayAlert("Empty", "Password is mandatory.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Password is mandatory.", "Empty", "Ok");
                     return;
                 }
                 Application.Current.Properties["DocValue"] = "";
@@ -112,13 +108,13 @@ namespace ZeaEye.ViewModels
                 else
                 {
                     UserDialogs.Instance.HideLoading();
-                    await Application.Current.MainPage.DisplayAlert("Authentication Fail", "Email or Password are incorrect.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Email or Password are incorrect.", "Authentication Fail", "Ok");
                 }
                 UserDialogs.Instance.HideLoading();
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Internet", "Internet connection required.", "Ok");
+                await UserDialogs.Instance.AlertAsync("Internet connection required.", "Internet", "Ok");
             }
         }
         #endregion

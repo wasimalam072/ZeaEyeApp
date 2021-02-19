@@ -5,9 +5,18 @@
              BackgroundImageSource="gradient_background.png"
              >
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="No internet connection" x:Name="InfoLabel" Margin="0,0,0,20"/>
-            <Button Text="Retry" TextTransform="None" WidthRequest="150" CornerRadius="0" FontSize="Default" Clicked="Button_Clicked" HorizontalOptions="Center"/>
+        <StackLayout VerticalOptions="Center"
+                     HorizontalOptions="Center">
+            <Label Text="No internet connection"
+                   x:Name="InfoLabel"
+                   Margin="0,0,0,20"/>
+            <Button Text="Retry"
+                    TextTransform="None"
+                    WidthRequest="150"
+                    CornerRadius="0"
+                    FontSize="Default"
+                    Clicked="Button_Clicked"
+                    HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

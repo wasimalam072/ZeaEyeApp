@@ -1,5 +1,4 @@
-﻿using System;
-using Acr.UserDialogs;
+﻿using Acr.UserDialogs;
 using Xamarin.Forms;
 using ZeaEye.Services;
 using ZeaEye.Views;
@@ -62,14 +61,9 @@ namespace ZeaEye.ViewModels
                 EditTimeVisible = true;
                 EditTimeHide = false;
             }
-            //if (string.IsNullOrEmpty(VerfyEmailId))
-            //{
-            //    await Application.Current.MainPage.DisplayAlert("Empty", "Email Id is mandatory.", "Ok");
-            //    return;
-            //}
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Email Id", "Email Id didn't match.", "Ok");
+                await UserDialogs.Instance.AlertAsync("Email Id didn't match.", "Email Id", "Ok");
                 return;
             }
         }
@@ -85,12 +79,12 @@ namespace ZeaEye.ViewModels
             UserDialogs.Instance.ShowLoading("Please wait...");
             if (string.IsNullOrEmpty(UpdatePassword))
             {
-                await Application.Current.MainPage.DisplayAlert("Empty", "Password is mandatory.", "Ok");
+                await UserDialogs.Instance.AlertAsync("Password is mandatory.", "Empty", "Ok");
                 return;
             }
             if (UpdatePassword?.Length <= 6)
             {
-                await Application.Current.MainPage.DisplayAlert("Validation", "Password must be grater than 7 characters.", "Ok");
+                await UserDialogs.Instance.AlertAsync("Password must be grater than 7 characters.", "Validation", "Ok");
                 UserDialogs.Instance.HideLoading();
                 return;
             }
@@ -98,7 +92,7 @@ namespace ZeaEye.ViewModels
             { 
                 var result =  auth.GetCurrentUser(UpdatePassword);
                 UserDialogs.Instance.HideLoading();
-                await Application.Current.MainPage.DisplayAlert("Update", "Password has updated.", "Ok");
+                await UserDialogs.Instance.AlertAsync("Password has updated.", "Update", "Ok");
                 Application.Current.MainPage = new LoginPage();
             }
             UserDialogs.Instance.HideLoading();

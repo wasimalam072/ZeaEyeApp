@@ -3,42 +3,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="{Binding Title}"
              x:Class="ZeaEye.Views.AddDeviceSuccessPage"
-             BackgroundImage="gradient_background.png"
-             >
+             BackgroundImage="gradient_background.png">
 
     <ContentPage.Content>
-        <AbsoluteLayout  Margin="10">
-            <BoxView  
-        AbsoluteLayout.LayoutBounds="0,0,1,1"
-        AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional"/>
-            <Frame BackgroundColor="#8adb74" BorderColor="White" CornerRadius="0" HasShadow="False" AbsoluteLayout.LayoutBounds="0,0,1,70"   
-                    AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional"
+        <AbsoluteLayout Margin="10">
+            <BoxView AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional"/>
+
+            <Frame BackgroundColor="#8adb74"
+                   BorderColor="White"
+                   CornerRadius="0"
+                   HasShadow="False"
+                   AbsoluteLayout.LayoutBounds="0,0,1,70"
+                   AbsoluteLayout.LayoutFlags="XProportional,YProportional, WidthProportional"
                    Margin="5"
-                       HorizontalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"
                    HeightRequest="25">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand" >
                     <Label Text="Device located!"
-                               FontFamily="HelveticaNeue"
-                       TextColor="White"
-                       VerticalOptions="Center"
-                       FontSize="16"/>
-                    <Image Source="ic_done.png" HorizontalOptions="EndAndExpand" HeightRequest="45" WidthRequest="45"/>
+                           FontFamily="HelveticaNeue"
+                           TextColor="White"
+                           VerticalOptions="Center"
+                           FontSize="16"/>
+                    <Image Source="ic_done.png"
+                           HorizontalOptions="EndAndExpand"
+                           HeightRequest="45"
+                           WidthRequest="45"/>
                 </StackLayout>
+
             </Frame>
 
             <StackLayout AbsoluteLayout.LayoutBounds="0.5,0.4,224,224"
                          AbsoluteLayout.LayoutFlags="XProportional,YProportional"
                          Orientation="Vertical">
-                <Image Aspect="AspectFit" Source="Watch.png"/>
+                <Image Aspect="AspectFit"
+                       Source="Watch.png"/>
                 <Label Text="{Binding DeviceIdValue}"
-                   TextColor="Gray"
+                       TextColor="Gray"
                        Margin="0,15,0,0"
                        HorizontalTextAlignment="Center" />
             </StackLayout>
 
-            <Label Text="Need Help?" HorizontalTextAlignment="Center"
+            <Label Text="Need Help?"
+                   HorizontalTextAlignment="Center"
                    TextDecorations="Underline"   
-                TextColor="Gray"
+                   TextColor="Gray"
                    AbsoluteLayout.LayoutBounds="0,0.8,1,40"   
                    AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional">
                 <Label.GestureRecognizers>
@@ -46,18 +57,25 @@
                 </Label.GestureRecognizers>
             </Label>
 
-            <Frame BackgroundColor="#4091e0" CornerRadius="0" HasShadow="False" AbsoluteLayout.LayoutBounds="0,1,1,70"   
-                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional"
+            <Frame BackgroundColor="#4091e0"
+                   CornerRadius="0"
+                   HasShadow="False"
+                   AbsoluteLayout.LayoutBounds="0,1,1,70"   
+                   AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional"
                    Margin="5"
-                       HorizontalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"
                    HeightRequest="25">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand" >
                     <Label Text="Confirm and add device"
-                               FontFamily="HelveticaNeue"
-                       TextColor="White"
-                       VerticalOptions="Center"
-                       FontSize="16"/>
-                    <Image Source="ic_done.png" HorizontalOptions="EndAndExpand" HeightRequest="45" WidthRequest="45"/>
+                           FontFamily="HelveticaNeue"
+                           TextColor="White"
+                           VerticalOptions="Center"
+                           FontSize="16"/>
+                    <Image Source="ic_done.png"
+                           HorizontalOptions="EndAndExpand"
+                           HeightRequest="45"
+                           WidthRequest="45"/>
                 </StackLayout>
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding ConnectedDeviceListCommand}"/>

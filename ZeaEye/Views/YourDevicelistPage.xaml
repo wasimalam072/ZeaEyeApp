@@ -3,57 +3,57 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="ZeaEye.Views.YourDevicelistPage"
              Title="{Binding Title}"
-             BackgroundImage="gradient_background.png"
-             >
+             BackgroundImage="gradient_background.png">
 
     <AbsoluteLayout Margin="15,15,15,0">
-        
-        <ListView   AbsoluteLayout.LayoutBounds="0,0,1,0.88"
-                    AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional"
-                           SeparatorColor="LightGray"
-                    BackgroundColor="White"
-                       x:Name="SelectedDevicesList"
-                       ItemsSource="{Binding Devicelistdata}" 
-                       SeparatorVisibility="Default"
-                       HasUnevenRows="true">
+        <ListView AbsoluteLayout.LayoutBounds="0,0,1,0.88"
+                  AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional"
+                  SeparatorColor="LightGray"
+                  BackgroundColor="White"
+                  x:Name="SelectedDevicesList"
+                  ItemsSource="{Binding Devicelistdata}" 
+                  SeparatorVisibility="Default"
+                  HasUnevenRows="true">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell x:Name="outerListviewCell">
                                 <ViewCell.View>
                                     <StackLayout>
-                                        <StackLayout  Orientation="Horizontal">
+                                        <StackLayout Orientation="Horizontal">
                                             <Image Source="group.png"
-                                               HeightRequest="50"
-                                               WidthRequest="50"
-                                               Aspect="AspectFit"
-                                               Margin="20,15,10,15"/>
+                                                   HeightRequest="50"
+                                                   WidthRequest="50"
+                                                   Aspect="AspectFit"
+                                                   Margin="20,15,10,15"/>
                                             <Label Text="{Binding zeaEyeSerialNumber}"
-                                               TextColor="#000000"
-                                               VerticalTextAlignment="Center"
-                                               FontFamily="HelveticaNeue"
-                                               FontSize="16"/>
+                                                   TextColor="#000000"
+                                                   VerticalTextAlignment="Center"
+                                                   FontFamily="HelveticaNeue"
+                                                   FontSize="16"/>
                                         </StackLayout>
-                                        <ScrollView BackgroundColor="#f2f2f2"  HeightRequest="{Binding Height}">
+                                        <ScrollView BackgroundColor="#f2f2f2"
+                                                    HeightRequest="{Binding Height}">
                                             <StackLayout BindableLayout.ItemsSource="{Binding lifeBands}">
                                                 <BindableLayout.ItemTemplate>
                                                     <DataTemplate>
-                                                        <Grid  HorizontalOptions="Center"
-                                                           RowSpacing="0">
+                                                        <Grid HorizontalOptions="Center"
+                                                              RowSpacing="0">
                                                             <StackLayout Orientation="Vertical">
                                                                 <StackLayout Orientation="Horizontal"
-                                                                     Margin="5,0,0,0">
+                                                                             Margin="5,0,0,0">
                                                                 <Image Source="Watch.png"
-                                                               HeightRequest="50"
-                                                               WidthRequest="50"
-                                                               Aspect="AspectFit"
-                                                               Margin="18,5,10,5"/>
+                                                                       HeightRequest="50"
+                                                                       WidthRequest="50"
+                                                                       Aspect="AspectFit"
+                                                                       Margin="18,5,10,5"/>
                                                                 <Label Text="{Binding mac}"
-                                                               FontSize="16"
-                                                               FontFamily="HelveticaNeue"
-                                                               TextColor="#000000"
-                                                               VerticalOptions="Center"/>
+                                                                       FontSize="16"
+                                                                       FontFamily="HelveticaNeue"
+                                                                       TextColor="#000000"
+                                                                       VerticalOptions="Center"/>
                                                             </StackLayout>
-                                                                <BoxView BackgroundColor="LightGray" HeightRequest="1" />
+                                                                <BoxView BackgroundColor="LightGray"
+                                                                         HeightRequest="1" />
                                                                 </StackLayout>
                                                         </Grid>
                                                     </DataTemplate>
@@ -63,29 +63,29 @@
                                         <StackLayout Orientation="Horizontal">
                                             <StackLayout Orientation="Vertical">
                                                 <Label Text="Connect Device"
-                                               VerticalOptions="Center"
-                                                   TextColor="Black"
-                                               Margin="30,5,0,0"/>
+                                                       VerticalOptions="Center"
+                                                       TextColor="Black"
+                                                       Margin="30,5,0,0"/>
                                                 <Label Text="to this Controller"
-                                               VerticalOptions="Center"
-                                                   TextColor="Black"
-                                               Margin="30,-7,0,0"/>
+                                                       VerticalOptions="Center"
+                                                       TextColor="Black"
+                                                       Margin="30,-7,0,0"/>
                                             </StackLayout>
-                                            <Button HeightRequest="35" Padding="0" Text="Add Device    +"
+                                            <Button HeightRequest="35"
+                                                    Padding="0"
+                                                    Text="Add Device    +"
                                                     CornerRadius="0"
-                                                VerticalOptions="Center"
-                                                TextTransform="None"
+                                                    VerticalOptions="Center"
+                                                    TextTransform="None"
                                                     FontAttributes="None"
-                                                HorizontalOptions="EndAndExpand"
-                                                Margin="10,10,10,10" 
-                                                BackgroundColor="#4091e0"
-                                                WidthRequest="120"
-                                                TextColor="White"
-                                                    BindingContext="{Binding Source={x:Reference SelectedDevicesList}, 
-                                                    Path=BindingContext}"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    Margin="10,10,10,10" 
+                                                    BackgroundColor="#4091e0"
+                                                    WidthRequest="120"
+                                                    TextColor="White"
+                                                    BindingContext="{Binding Source={x:Reference SelectedDevicesList}, Path=BindingContext}"
                                                     Command="{Binding AddDeviceCommond}"  
-                                                    CommandParameter="{Binding Source={x:Reference outerListviewCell}, 
-                                                    Path=BindingContext}">
+                                                    CommandParameter="{Binding Source={x:Reference outerListviewCell}, Path=BindingContext}">
                                             </Button>
                                         </StackLayout>
                                     </StackLayout>
@@ -94,9 +94,14 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            <Button Text="Add a new Controller" AbsoluteLayout.LayoutBounds="0.5,0.98,1,60"   
-               AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional"
-                    CornerRadius="0" BackgroundColor="#4091e0" TextTransform="None" TextColor="White"
-                    VerticalOptions="End" Command="{Binding scancontrollercommand}"/>
+            <Button Text="Add a new Controller"
+                    AbsoluteLayout.LayoutBounds="0.5,0.98,1,60"
+                    AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional"
+                    CornerRadius="0"
+                    BackgroundColor="#4091e0"
+                    TextTransform="None"
+                    TextColor="White"
+                    VerticalOptions="End"
+                    Command="{Binding scancontrollercommand}"/>
 </AbsoluteLayout>
 </ContentPage>

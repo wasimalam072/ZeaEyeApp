@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-using Xamarin.Forms;
-using ZeaEye.Views;
+﻿using Xamarin.Forms;
 
 namespace ZeaEye.ViewModels
 {
@@ -15,7 +10,6 @@ namespace ZeaEye.ViewModels
 
         public IndicatorViewModel(bool _condata, string condata = null)
         {
-
             Title = "Add your first Controller";
             if (condata != null)
             {

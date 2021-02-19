@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Acr.UserDialogs;
 using Xamarin.Forms;
 using ZeaEye.API.Services;
-using ZeaEye.Models;
 using ZeaEye.Views;
 using ZeaEye.API.Models.Response;
 

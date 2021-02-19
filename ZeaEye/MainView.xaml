@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ZeaEye.MainView"
-                  >
+             x:Class="ZeaEye.MainView">
+
     <MasterDetailPage.Master>
-        <ContentPage BackgroundColor="White" IconImageSource="menu" Title="Menu">
+        <ContentPage BackgroundColor="White"
+                     IconImageSource="menu"
+                     Title="Menu">
             <ContentPage.Content>
                     <Grid RowDefinitions="*,*">
-
-                        <Grid Grid.Row="0" ColumnSpacing="0" HeightRequest="120" Padding="40,25,0,20" BackgroundColor="#63ACCE">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="7*"/>
-                                    <RowDefinition Height="3*"/>
-                                </Grid.RowDefinitions>
+                        <Grid Grid.Row="0"
+                              ColumnSpacing="0"
+                              HeightRequest="120"
+                              Padding="40,25,0,20"
+                              BackgroundColor="#63ACCE"
+                              ColumnDefinitions="*">
+                            <Grid Grid.Column="0"
+                                  RowDefinitions="7*, 3*">
                                 <Image Grid.Row="0"
                                        HorizontalOptions="Start"
                                        Aspect="AspectFit"
@@ -36,7 +36,10 @@
                             </Grid>
                         </Grid>
 
-                        <Grid Grid.Row="1" RowDefinitions="40,40,1,40,40,1,40,40, *" Padding="35,0,10,20"  Grid.RowSpan="5">
+                        <Grid Grid.Row="1"
+                              RowDefinitions="40,40,1,40,40,1,40,40, *"
+                              Padding="35,0,10,20"
+                              Grid.RowSpan="5">
                             <Button Grid.Row="0"
                                     Text="Dashboard" 
                                     TextTransform="None" 
@@ -50,7 +53,10 @@
                                     BackgroundColor="Transparent" 
                                     HorizontalOptions="Start"
                                     TextColor="Gray"/>
-                            <BoxView Grid.Row="2" Margin="10,0,0,0" HeightRequest="1" BackgroundColor="LightGray"/>
+                            <BoxView Grid.Row="2"
+                                     Margin="10,0,0,0"
+                                     HeightRequest="1"
+                                     BackgroundColor="LightGray"/>
                             <Button Grid.Row="3"
                                     TextTransform="None"
                                     BackgroundColor="Transparent" 
@@ -65,7 +71,10 @@
                                     Text="Your Device(s)" 
                                     Clicked="Button_Clicked" 
                                     TextColor="Gray"/>
-                            <BoxView Grid.Row="5" Margin="10,0,0,0" HeightRequest="1" BackgroundColor="LightGray"/>
+                            <BoxView Grid.Row="5"
+                                     Margin="10,0,0,0"
+                                     HeightRequest="1"
+                                     BackgroundColor="LightGray"/>
                             <Button Grid.Row="6" 
                                     TextTransform="None" 
                                     BackgroundColor="Transparent" 
@@ -80,8 +89,12 @@
                                     Text="Sign out        " 
                                     Clicked="Button_Clicked_Signout" 
                                     TextColor="Gray" />
-                            <StackLayout Grid.Row="8" HorizontalOptions="Start" VerticalOptions="EndAndExpand">
-                                <Label TextColor="#7F7F7F" FontAttributes="Italic" FontSize="12">
+                            <StackLayout Grid.Row="8"
+                                         HorizontalOptions="Start"
+                                         VerticalOptions="EndAndExpand">
+                                <Label TextColor="#7F7F7F"
+                                       FontAttributes="Italic"
+                                       FontSize="12">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="   Version Number: "/>

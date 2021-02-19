@@ -4,36 +4,41 @@
              x:Class="ZeaEye.Views.SelectedControllerPage"
              BackgroundImageSource="gradient_background.png"
              Title="{Binding Title}">
-
     <AbsoluteLayout Margin="15,15,15,0">
         <ListView   AbsoluteLayout.LayoutBounds="0,0,1,0.20"
                     AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional" 
-                     Grid.Row="0"
+                    Grid.Row="0"
                     BackgroundColor="White"
-                       ItemsSource="{Binding Devicelistdata}"
-                       SeparatorVisibility="Default"
-                       HasUnevenRows="true">
+                    ItemsSource="{Binding Devicelistdata}"
+                    SeparatorVisibility="Default"
+                    HasUnevenRows="true">
             <ListView.Header>
-                <StackLayout BackgroundColor="#f2f2f2" Orientation="Horizontal" HorizontalOptions="Fill">
-                    <Label TextColor="Black" Text="Selected Controller" 
-                           HorizontalOptions="Center" Margin="20,10,0,10" FontSize="18"/>
+                <StackLayout BackgroundColor="#f2f2f2"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Fill">
+                    <Label TextColor="Black"
+                           Text="Selected Controller" 
+                           HorizontalOptions="Center"
+                           Margin="20,10,0,10"
+                           FontSize="18"/>
                 </StackLayout>
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Margin="10,10,0,10" Orientation="Horizontal">
+                        <StackLayout Margin="10,10,0,10"
+                                     Orientation="Horizontal">
                             <Image Source="group.png"
-                                               HeightRequest="50"
-                                               WidthRequest="50"
-                                               Aspect="AspectFit"
-                                               Margin="10,0,5,10"/>
+                                   HeightRequest="50"
+                                   WidthRequest="50"
+                                   Aspect="AspectFit"
+                                   Margin="10,0,5,10"/>
                             <Label Text="{Binding zeaEyeSerialNumber}"
-                                               TextColor="#000000"
-                                               Margin="0,-10,0,0"
-                                               VerticalTextAlignment="Center"
-                                               FontFamily="HelveticaNeue"
-                                               FontSize="16"/>
+                                   TextColor="#000000"
+                                   Margin="0,-10,0,0"
+                                   VerticalTextAlignment="Center"
+                                   FontFamily="HelveticaNeue"
+                                   FontSize="16"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -42,13 +47,13 @@
 
         <ListView   AbsoluteLayout.LayoutBounds="0,0.31,1,0.30"
                     AbsoluteLayout.LayoutFlags="XProportional,YProportional, HeightProportional, WidthProportional"
-                     Grid.Row="0"
+                    Grid.Row="0"
                     BackgroundColor="White"
                     x:Name="SelectedDevicesListType"
-                       ItemsSource="{Binding YourTypeDeviceListData}"
-                       SeparatorVisibility="Default"
+                    ItemsSource="{Binding YourTypeDeviceListData}"
+                    SeparatorVisibility="Default"
                     SeparatorColor="LightGray"
-                       HasUnevenRows="true">
+                    HasUnevenRows="true">
             <ListView.Header>
                 <StackLayout BackgroundColor="#f2f2f2"
                              Orientation="Horizontal"
@@ -67,31 +72,31 @@
                             <StackLayout Margin="7"
                                          Orientation="Horizontal">
                                 <Image Source="Watch.png"
-                                               HeightRequest="50"
-                                               WidthRequest="50"
-                                               Aspect="AspectFit"
-                                               Margin="10,0,5,0"/>
+                                       HeightRequest="50"
+                                       WidthRequest="50"
+                                       Aspect="AspectFit"
+                                       Margin="10,0,5,0"/>
                                 <Label Text="{Binding serialNumber}"
-                                               TextColor="#000000"
-                                               VerticalTextAlignment="Center"
-                                               FontFamily="HelveticaNeue"
-                                               FontSize="16"/>
+                                       TextColor="#000000"
+                                       VerticalTextAlignment="Center"
+                                       FontFamily="HelveticaNeue"
+                                       FontSize="16"/>
                                 
-                                <Button HeightRequest="35" Padding="0" Text="Select         >"
-                                         CornerRadius="0"
-                                                VerticalOptions="Center"
-                                                TextTransform="None"
-                                                FontAttributes="None"
-                                                HorizontalOptions="EndAndExpand"
-                                                Margin="7"
-                                                BackgroundColor="#4091e0"
-                                                WidthRequest="120"
-                                                TextColor="White"
-                                         BindingContext="{Binding Source={x:Reference SelectedDevicesListType}, 
-                                         Path=BindingContext}"
-                                         Command="{Binding SelectDeviceCommand}"  
-                                         CommandParameter="{Binding Source={x:Reference outerListviewType}, 
-                                                    Path=BindingContext}">
+                                <Button HeightRequest="35"
+                                        Padding="0"
+                                        Text="Select         >"
+                                        CornerRadius="0"
+                                        VerticalOptions="Center"
+                                        TextTransform="None"
+                                        FontAttributes="None"
+                                        HorizontalOptions="EndAndExpand"
+                                        Margin="7"
+                                        BackgroundColor="#4091e0"
+                                        WidthRequest="120"
+                                        TextColor="White"
+                                        BindingContext="{Binding Source={x:Reference SelectedDevicesListType}, Path=BindingContext}"
+                                        Command="{Binding SelectDeviceCommand}"  
+                                        CommandParameter="{Binding Source={x:Reference outerListviewType}, Path=BindingContext}">
                                     </Button>
                             </StackLayout>
                         </ViewCell.View>
@@ -99,13 +104,11 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
         <Label Text="Need help?" 
                TextDecorations="Underline"
                HorizontalTextAlignment="Center"
                TextColor="#7F7F7F"
                AbsoluteLayout.LayoutBounds="0.5,0.95,1,60"   
                AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional"/>
-
     </AbsoluteLayout>
 </ContentPage>

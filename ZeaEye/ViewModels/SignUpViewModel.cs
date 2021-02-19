@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using Acr.UserDialogs;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using ZeaEye.API.Models.Request;
 using ZeaEye.API.Services;
 using ZeaEye.Services;
 using ZeaEye.Views;
@@ -71,42 +65,42 @@ namespace ZeaEye.ViewModels
             {
                 if (string.IsNullOrEmpty(EmailId) && string.IsNullOrEmpty(FirstName) && string.IsNullOrEmpty(Password))
                 {
-                    await Application.Current.MainPage.DisplayAlert("Empty", "Email Id, FirstName and Password are mandatory.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Email Id, FirstName and Password are mandatory.", "Empty", "Ok");
                     return;
                 }
                 if (string.IsNullOrEmpty(FirstName) && string.IsNullOrEmpty(Password))
                 {
-                    await Application.Current.MainPage.DisplayAlert("Empty", "FirstName and Password are mandatory.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("FirstName and Password are mandatory", "Empty", "Ok");
                     return;
                 }
                 if (string.IsNullOrEmpty(EmailId) && string.IsNullOrEmpty(Password))
                 {
-                    await Application.Current.MainPage.DisplayAlert("Empty", "Email Id and Password are mandatory.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Email Id and Password are mandatory.", "Empty", "Ok");
                     return;
                 }
                 if (string.IsNullOrEmpty(EmailId) && string.IsNullOrEmpty(FirstName))
                 {
-                    await Application.Current.MainPage.DisplayAlert("Empty", "Email Id and FirstName are mandatory.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Email Id and FirstName are mandatory.", "Empty", "Ok");
                     return;
                 }
                 if (string.IsNullOrEmpty(EmailId))
                 {
-                    await Application.Current.MainPage.DisplayAlert("Empty", "Email Id is mandatory.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Email Id is mandatory.", "Empty", "Ok");
                     return;
                 }
                 if (string.IsNullOrEmpty(FirstName))
                 {
-                    await Application.Current.MainPage.DisplayAlert("Empty", "FirstName is mandatory.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("FirstName is mandatory.", "Empty", "Ok");
                     return;
                 }
                 if (string.IsNullOrEmpty(Password))
                 {
-                    await Application.Current.MainPage.DisplayAlert("Empty", "Password is mandatory.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Password is mandatory.", "Empty", "Ok");
                     return;
                 }
                 if (Password?.Length <= 6)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Validation", "Password must be grater than 7 characters.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Password must be grater than 7 characters.", "Validation", "Ok");
                     return;
                 }
                 UserDialogs.Instance.ShowLoading("Please wait...");
@@ -115,11 +109,11 @@ namespace ZeaEye.ViewModels
                 Preferences.Set("UserName", FirstName);
                 if (user == "E")
                 {
-                    await Application.Current.MainPage.DisplayAlert("Error", "Email Id already exist.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Email Id already exist.", "Error", "Ok");
                 }
                 else if (user == "EF")
                 {
-                    await Application.Current.MainPage.DisplayAlert("Error", "Email Id is not correct format.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Email Id is not correct format.", "Error", "Ok");
                 }
                 else if (user != "")
                 {
@@ -127,7 +121,7 @@ namespace ZeaEye.ViewModels
                     var res1 = await baseApiServices.SaveDocument(EmailId, string.Empty, userid, name, string.Empty, string.Empty);
                     Application.Current.Properties["UserName"] = FirstName;
                     UserDialogs.Instance.HideLoading();
-                    await Application.Current.MainPage.DisplayAlert("Success", "Your account successfully created.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Your account successfully created.", "Success", "Ok");
                     var signOut = auth.SignOut();
                     if (signOut)
                     {
@@ -138,13 +132,13 @@ namespace ZeaEye.ViewModels
                 else
                 {
                     UserDialogs.Instance.HideLoading();
-                    await Application.Current.MainPage.DisplayAlert("Error", "Somthings went wrong, please try again.", "Ok");
+                    await UserDialogs.Instance.AlertAsync("Somthings went wrong, please try again.", "Error", "Ok");
                 }
                 UserDialogs.Instance.HideLoading();
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Internet", "Internet connection required.", "Ok");
+                await UserDialogs.Instance.AlertAsync("Internet connection required.", "Internet", "Ok");
             }
         }
         #endregion

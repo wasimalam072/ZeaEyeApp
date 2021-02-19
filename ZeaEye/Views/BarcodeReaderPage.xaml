@@ -22,6 +22,6 @@
                                    AbsoluteLayout.LayoutFlags="All"
                                    BottomText="Center the QR code in view"
                                    ShowFlashButton="false"
-                                   Opacity="0.9"  />
+                                   Opacity="0.9"/>
     </AbsoluteLayout>
 </ContentPage>
