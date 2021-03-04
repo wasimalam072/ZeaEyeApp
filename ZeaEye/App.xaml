@@ -12,7 +12,7 @@
                <Setter Property="BarBackgroundColor" Value="Black"/>
                <Setter Property="BarTextColor" Value="White"/>
             </Style>
-            <Style TargetType="Button">
+            <Style TargetType="Button" >
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>

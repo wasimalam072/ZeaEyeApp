@@ -26,6 +26,10 @@ namespace ZeaEye
                 auth = DependencyService.Get<IAuth>();
                 DependencyService.Register<MockDataStore>();
 
+                MainThread.BeginInvokeOnMainThread(() => {
+
+                });
+
                 if (auth.IsSignIn())
                 {
                     MainPage = new MainView();

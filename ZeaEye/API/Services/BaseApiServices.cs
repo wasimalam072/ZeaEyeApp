@@ -12,7 +12,6 @@ namespace ZeaEye.API.Services
 {
    public class BaseApiServices
     {
-        
         string XAPIKey = "B9467C541CF04DD28D36EFA0A4B3A48F";
         string Baseurl = "https://api.zeaeye.com";
 

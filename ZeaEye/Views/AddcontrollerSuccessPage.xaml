@@ -11,21 +11,19 @@
             <Grid Grid.Row="0"
                   BackgroundColor="Black"
                   ColumnSpacing="0"
-                  ColumnDefinitions="1*, 9*">
+                  ColumnDefinitions="0.8*, 9.2*">
                 <ImageButton Grid.Column="0"
                              Source="tab_feed"
                              Aspect="AspectFit"
-                             HeightRequest="25"
                              Margin="5,0,0,0"
-                             WidthRequest="25"
                              BackgroundColor="Black"
-                             Command="{Binding BackFromToAddDevicecommand}">
-                </ImageButton>
+                             Command="{Binding BackFromToAddDevicecommand}"/>
+
                 <Label Grid.Column="1"
                        Text="Add a new Controller"
                        FontSize="18"
                        Margin="20,0,0,0"
-                       VerticalTextAlignment="Center"
+                       VerticalOptions="Center"
                        TextColor="White"
                        BackgroundColor="Black"/>
             </Grid>

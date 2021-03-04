@@ -5,11 +5,8 @@
              BackgroundImageSource="gradient_background"
              Title="{Binding Title}">
 
-    <AbsoluteLayout VerticalOptions="FillAndExpand"
-                    HorizontalOptions="FillAndExpand">
-        <ScrollView AbsoluteLayout.LayoutFlags="All"
-                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
-            <Grid RowDefinitions="Auto, 30, Auto, 20, Auto, Auto, Auto"
+        <ScrollView>
+            <Grid RowDefinitions="Auto, 30, Auto, 20, Auto, Auto"
                   VerticalOptions="Center">
                 <Image Grid.Row="0"
                        HeightRequest="120"
@@ -18,22 +15,20 @@
                        Source="logoWithoutName"/>
                 <Label Grid.Row="2"
                        Text="Ohoy sailor!"
-                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
                        TextColor="#000000"
                        FontAttributes="Bold"
-                       FontSize="Large"/>
+                       FontSize="24"/>
                 <Label Grid.Row="4"
                        Text="Welcome aboard to your"
-                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
                        TextColor="#7F7F7F"
                        FontSize="16"/>
                 <Label Grid.Row="5"
                        Text="new personal sailing assistant"
-                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
                        TextColor="#7F7F7F"
                        FontSize="16"/>
             </Grid>
         </ScrollView>
-    </AbsoluteLayout>
-
 </ContentPage>
