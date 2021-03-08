@@ -34,11 +34,13 @@
                     <Button Text="Cancel"
                             CornerRadius="5"
                         TextTransform="None"
+                            Padding="10"
                         VerticalOptions="EndAndExpand"
                         Command="{Binding CancelCommand}"/>
                     <Button Text="Connect to admin"
                         TextTransform="None"
                             CornerRadius="5"
+                            Padding="10"
                         VerticalOptions="EndAndExpand"
                         Command="{Binding trycommand}"/>
                 </StackLayout>
