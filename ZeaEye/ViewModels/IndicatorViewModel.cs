@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using Acr.UserDialogs;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace ZeaEye.ViewModels
 {
@@ -39,6 +41,20 @@ namespace ZeaEye.ViewModels
             }
         }
 
+        public Command CancelCommand
+        {
+            get
+            {
+                return new Command(OnCancelClicked);
+            }
+        }
+        private async void OnCancelClicked(object obj)
+        {
+              (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.RemovePage((Application.Current.MainPage as MasterDetailPage).Detail.Navigation.NavigationStack[(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.NavigationStack.Count - 2]);
+
+                await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
+        }
+
         public Command trycommand
         {
             get
@@ -48,9 +64,8 @@ namespace ZeaEye.ViewModels
         }
         private async void OnItemDetailScreenClicked(object obj)
         {
-            (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.RemovePage((Application.Current.MainPage as MasterDetailPage).Detail.Navigation.NavigationStack[(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.NavigationStack.Count - 2]);
-
-            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
+                var uri = "https://zeaeye.com/support";
+                await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
     
     }

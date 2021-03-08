@@ -24,16 +24,25 @@
             </StackLayout>
             <StackLayout IsVisible="{Binding ErrorBind}" 
                          VerticalOptions="CenterAndExpand">
-                <Label Text="Controller already assigned."
+                <Label Text="Controller does not found."
                        VerticalOptions="Center"
                        TextColor="#7F7F7F"
                        FontSize="16"
                        Margin="0,0,0,20"
                        HorizontalOptions="CenterAndExpand"/>
-                <Button Text="Try again"
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Cancel"
+                            CornerRadius="5"
                         TextTransform="None"
                         VerticalOptions="EndAndExpand"
+                        Command="{Binding CancelCommand}"/>
+                    <Button Text="Connect to admin"
+                        TextTransform="None"
+                            CornerRadius="5"
+                        VerticalOptions="EndAndExpand"
                         Command="{Binding trycommand}"/>
+                </StackLayout>
+                
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -52,7 +52,12 @@ namespace ZeaEye.ViewModels
             if (!string.IsNullOrEmpty(Application.Current.Properties["ControllerExist"].ToString()))
             {
                 UserDialogs.Instance.HideLoading();
-                await UserDialogs.Instance.AlertAsync("There is some problem with the Controller.", "Please contact Admin", "Ok");
+                var answer = await UserDialogs.Instance.ConfirmAsync("Do you want admin support?", "Controller already mappped", "Yes", "No");
+                if (answer)
+                {
+                    var uri = "https://zeaeye.com/support";
+                    await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+                }
             }
             else
             {
@@ -69,7 +74,12 @@ namespace ZeaEye.ViewModels
                 if (res != "Connected")
                 {
                     UserDialogs.Instance.HideLoading();
-                    await UserDialogs.Instance.AlertAsync("Controller already mappped.", "Please contact Admin", "Ok");
+                    var answer = await UserDialogs.Instance.ConfirmAsync("Do you want admin support?", "Controller already mappped", "Yes", "No");
+                    if (answer)
+                    {
+                        var uri = "https://zeaeye.com/support";
+                        await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+                    }
                 }
             }
             UserDialogs.Instance.HideLoading();
