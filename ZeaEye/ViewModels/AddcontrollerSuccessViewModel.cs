@@ -52,7 +52,7 @@ namespace ZeaEye.ViewModels
             if (!string.IsNullOrEmpty(Application.Current.Properties["ControllerExist"].ToString()))
             {
                 UserDialogs.Instance.HideLoading();
-                var answer = await UserDialogs.Instance.ConfirmAsync("Do you want admin support?", "Controller already mappped", "Yes", "No");
+                var answer = await UserDialogs.Instance.ConfirmAsync("Do you want to contact the support?", "Controller is already connected to a profile", "Yes", "No");
                 if (answer)
                 {
                     var uri = "https://zeaeye.com/support";
@@ -74,7 +74,7 @@ namespace ZeaEye.ViewModels
                 if (res != "Connected")
                 {
                     UserDialogs.Instance.HideLoading();
-                    var answer = await UserDialogs.Instance.ConfirmAsync("Do you want admin support?", "Controller already mappped", "Yes", "No");
+                    var answer = await UserDialogs.Instance.ConfirmAsync("Do you want to contact the support?", "Controller is already connected to a profile", "Yes", "No");
                     if (answer)
                     {
                         var uri = "https://zeaeye.com/support";
